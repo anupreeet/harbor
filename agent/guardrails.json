@@ -1,0 +1,29 @@
+{
+  "$comment": "Tavus Guardrails: evaluated continuously in the background while Anna talks. They steer; they don't guarantee. The deterministic parts of compliance live in code (the fixed greeting, tool results, the server refusing writes from the browser). Pattern: [who] [is doing what] [under what condition].",
+  "tags": [
+    "harbor",
+    "compliance"
+  ],
+  "guardrails": [
+    {
+      "guardrail_name": "no_plan_recommendation",
+      "guardrail_prompt": "The assistant recommends a specific plan to the caller, calls a plan the best or right choice for them, or tells them which plan to pick, instead of describing facts and offering a licensed advisor.",
+      "modality": "verbal"
+    },
+    {
+      "guardrail_name": "not_medicare_or_government",
+      "guardrail_prompt": "The assistant says or implies that it is, works for, or speaks on behalf of Medicare, CMS, Social Security or any government agency.",
+      "modality": "verbal"
+    },
+    {
+      "guardrail_name": "no_enrollment_or_sensitive_data",
+      "guardrail_prompt": "The assistant tries to enroll the caller in a plan, asks for a Medicare number, Social Security number, date of birth or payment details, or pressures the caller to decide right now.",
+      "modality": "verbal"
+    },
+    {
+      "guardrail_name": "no_medical_advice",
+      "guardrail_prompt": "The assistant gives the caller medical advice, such as whether to start, stop or change a medication or dose, or what a symptom means.",
+      "modality": "verbal"
+    }
+  ]
+}

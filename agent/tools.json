@@ -1,0 +1,199 @@
+{
+  "$comment": "Single source of truth for Anna's tools. `npm run agent:sync` registers these with Tavus; the server validates incoming arguments against the same `parameters`. delivery: client = Tavus sends the call over the video room's data channel and the browser relays it to /api/tools (reads, so the result shows on screen instantly); server = Tavus calls /api/tavus/tools directly, HMAC-signed (writes, so a closed tab can't lose them). `sources` is shown to the caller under each lookup and is not sent to Tavus.",
+  "tools": [
+    {
+      "name": "lookup_doctor",
+      "delivery": "client",
+      "on_call": "generate_filler",
+      "on_resolve": "generate_response",
+      "description": "Look up a doctor the caller sees, in the official US clinician registry (NPI) plus Medicare's enrollment data, and check which of our plans include them. Call this as soon as the caller names a doctor. The caller's city and state are already known; never ask for them. Result: status 'found' (one doctor: specialty, whether they accept Medicare, which plans include them), 'multiple' (ask which one, using first name, specialty or practice), 'too_many' (ask for the doctor's first name), or 'none' (ask them to spell the last name).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "last_name": {
+            "type": "string",
+            "description": "Doctor's last name as spoken, e.g. 'Patel'."
+          },
+          "first_name": {
+            "type": "string",
+            "description": "Doctor's first name whenever the caller says one, e.g. 'Jasmin' from 'Dr. Jasmin Patel'."
+          },
+          "specialty_hint": {
+            "type": "string",
+            "description": "Only a medical specialty the caller said, e.g. 'cardiologist'. Never a name; leave it out if they didn't say a specialty."
+          }
+        },
+        "required": [
+          "last_name"
+        ]
+      },
+      "sources": [
+        "NPI Registry API (npiregistry.cms.hhs.gov/api)",
+        "CMS Doctors & Clinicians (data.cms.gov provider data)",
+        "Harbor plan networks (Postgres, demo data)"
+      ]
+    },
+    {
+      "name": "check_drug",
+      "delivery": "client",
+      "on_call": "generate_filler",
+      "on_resolve": "generate_response",
+      "description": "Identify a medication the caller takes (corrects mis-heard names using the national drug database) and check how each of our plans covers it. Call once per medication as soon as it's mentioned. Result: the recognised drug name, strengths_to_ask (if present and the caller hasn't said a strength, ask which one), and per-plan tier and monthly copay. Status 'not_found' means ask them to read the name off the bottle.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "drug_name": {
+            "type": "string",
+            "description": "Medication name as spoken, brand or generic, e.g. 'Eliquis'."
+          },
+          "strength": {
+            "type": "string",
+            "description": "Strength if the caller said it, e.g. '5 mg'."
+          }
+        },
+        "required": [
+          "drug_name"
+        ]
+      },
+      "sources": [
+        "RxNorm, National Library of Medicine (rxnav.nlm.nih.gov/REST)",
+        "Harbor formularies (Postgres, demo data)"
+      ]
+    },
+    {
+      "name": "find_plans",
+      "delivery": "client",
+      "on_call": "generate_filler",
+      "on_resolve": "generate_response",
+      "description": "List the plans we offer in the caller's county, showing for each one whether it includes the doctors and covers the drugs already checked in this conversation. Call after you've checked their doctors and medications, or when they ask what plans are available. This is a factual comparison, not a recommendation: describe trade-offs, never pick a plan for them.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "plan_type": {
+            "type": "string",
+            "enum": [
+              "HMO",
+              "PPO",
+              "HMO-POS",
+              "PDP"
+            ],
+            "description": "Only if the caller asked about one type."
+          }
+        }
+      },
+      "sources": [
+        "ZIP to county (Zippopotam, FCC Area API)",
+        "Harbor plans and formularies (Postgres, demo data)"
+      ]
+    },
+    {
+      "name": "estimate_annual_cost",
+      "delivery": "client",
+      "on_call": "generate_filler",
+      "on_resolve": "generate_response",
+      "description": "Estimate what one plan would cost the caller per year: premiums plus copays for the medications already checked. Call when the caller asks what a specific plan would cost them. Result is an estimate; say so.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "plan_name": {
+            "type": "string",
+            "description": "Plan name or type the caller referred to, e.g. 'the PPO' or 'Larkspur Health Advantage HMO'."
+          }
+        },
+        "required": [
+          "plan_name"
+        ]
+      },
+      "sources": [
+        "Harbor plans and formularies (Postgres, demo data)",
+        "2026 Part D out-of-pocket cap"
+      ]
+    },
+    {
+      "name": "show_plan_details",
+      "delivery": "client",
+      "on_call": "silent",
+      "on_resolve": "generate_response",
+      "description": "Put one plan's full benefits on the caller's screen: premium, deductibles, yearly maximum, copays, extras, star rating, and whether the doctors and medications checked so far are covered. Call it when they ask about a specific plan ('tell me about the PPO', 'does the HMO have dental?') or tap Details on a plan. Result: status 'shown' with the key facts (summarise in one or two sentences; the screen has the rest), or 'unknown_plan' with the plan names to ask about.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "plan_name": {
+            "type": "string",
+            "description": "Plan name or type as spoken, e.g. 'the PPO' or 'Larkspur Health Advantage HMO'."
+          }
+        },
+        "required": [
+          "plan_name"
+        ]
+      },
+      "sources": [
+        "Harbor plans and formularies (Postgres, demo data)"
+      ]
+    },
+    {
+      "name": "get_advisor_availability",
+      "delivery": "client",
+      "on_call": "silent",
+      "on_resolve": "generate_response",
+      "description": "Get the next open times for a call with a licensed Harbor advisor, in the caller's time zone. Call when the caller wants help choosing or enrolling in a plan, or asks to talk to a person. Offer two or three of the returned times.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "preferred_day": {
+            "type": "string",
+            "description": "Optional: 'today', 'tomorrow', or a weekday like 'thursday'."
+          }
+        }
+      },
+      "sources": [
+        "Harbor advisor calendar (Postgres)"
+      ]
+    },
+    {
+      "name": "book_advisor_call",
+      "delivery": "server",
+      "on_call": "generate_filler",
+      "on_resolve": "generate_response",
+      "description": "Book a call with a licensed Harbor advisor at a time the caller explicitly chose from get_advisor_availability. Only call after the caller has confirmed the exact time out loud. Result: the confirmed time and advisor name, or 'taken' with alternatives to offer.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "slot_id": {
+            "type": "string",
+            "description": "The slot_id of the time the caller chose, exactly as returned by get_advisor_availability."
+          }
+        },
+        "required": [
+          "slot_id"
+        ]
+      },
+      "sources": [
+        "Harbor advisor calendar and CRM (Postgres)"
+      ]
+    },
+    {
+      "name": "remember_preference",
+      "delivery": "server",
+      "on_call": "silent",
+      "on_resolve": "add_to_context",
+      "description": "Save a lasting preference the caller explicitly asks you to remember for next time, e.g. 'call me Bob', 'my daughter handles my paperwork', 'I prefer mornings'. Only call when they ask you to remember something or clearly state a standing preference. Never store medical details here.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "preference": {
+            "type": "string",
+            "maxLength": 200,
+            "description": "One short sentence in third person, e.g. 'Prefers to be called Bob.'"
+          }
+        },
+        "required": [
+          "preference"
+        ]
+      },
+      "sources": [
+        "Harbor CRM (Postgres)"
+      ]
+    }
+  ]
+}

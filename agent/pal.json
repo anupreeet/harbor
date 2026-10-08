@@ -1,0 +1,35 @@
+{
+  "$comment": "PAL (persona) config. system_prompt is loaded from system-prompt.md; objectives, guardrails and tools are attached by `npm run agent:sync`. The greeting is per-conversation (custom_greeting) because it carries the compliance disclaimer.",
+  "pal_name": "Harbor Medicare Rep (Anna)",
+  "default_face_id": "rc9cff32ceba",
+  "pipeline_mode": "full",
+  "languages": [
+    "en"
+  ],
+  "disclosure_type": "always",
+  "layers": {
+    "llm": {
+      "model": "tavus-gemma-4"
+    },
+    "stt": {
+      "hotwords": "Medicare, Medigap, Part D, Medicaid, HMO, PPO, Harbor, Eliquis, Xarelto, metformin, atorvastatin, Lipitor, lisinopril, losartan, Ozempic, Jardiance, Januvia, Lantus, levothyroxine, amlodipine"
+    },
+    "perception": {
+      "perception_model": "raven-1",
+      "visual_awareness_queries": [
+        "Is the caller showing a prescription list, a pharmacy page, a pill bottle or a plan document, on camera or on a shared screen?",
+        "Is the caller looking at the screen, or looking away or reading something?",
+        "Is anyone other than the caller visible, and are they talking for the caller?"
+      ],
+      "audio_awareness_queries": [
+        "Does the caller sound confused, hesitant or unsure?"
+      ]
+    },
+    "conversational_flow": {
+      "turn_detection_model": "sparrow-2",
+      "turn_taking_patience": "high",
+      "pal_interruptibility": "medium",
+      "idle_engagement": "patient"
+    }
+  }
+}

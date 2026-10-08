@@ -1,0 +1,11 @@
+{
+  "$comment": "Anna's knowledge base: official Medicare.gov pages, crawled by Tavus and retrieved per turn (RAG). For general questions (\"what's Part B?\", \"when can I switch plans?\"). Facts about OUR plans, prices and networks never come from here: those come from tools and SQL. Attached to every call by tag in app/api/conversations/route.ts.",
+  "tag": "harbor-medicare-basics",
+  "documents": [
+    { "document_name": "Medicare & You 2026 (official handbook)", "document_url": "https://www.medicare.gov/publications/10050-medicare-and-you.pdf" },
+    { "document_name": "Medicare.gov: Parts of Medicare", "document_url": "https://www.medicare.gov/basics/get-started-with-medicare/medicare-basics/parts-of-medicare" },
+    { "document_name": "Medicare.gov: Joining a plan (enrollment periods)", "document_url": "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan" },
+    { "document_name": "Medicare.gov: Drug coverage (Part D)", "document_url": "https://www.medicare.gov/health-drug-plans/part-d" },
+    { "document_name": "Medicare.gov: Medicare costs", "document_url": "https://www.medicare.gov/basics/costs/medicare-costs" }
+  ]
+}
