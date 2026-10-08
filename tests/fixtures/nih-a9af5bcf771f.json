@@ -1,0 +1,17 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/rxcui/318020/related.json?tty=IN+BN",
+ "status": 200,
+ "body": {
+  "relatedGroup": {
+   "rxcui": null,
+   "conceptGroup": [
+    {
+     "tty": "BN"
+    },
+    {
+     "tty": "IN"
+    }
+   ]
+  }
+ }
+}

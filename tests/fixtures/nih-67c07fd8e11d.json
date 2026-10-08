@@ -1,0 +1,42 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=xarelto&maxEntries=5",
+ "status": 200,
+ "body": {
+  "approximateGroup": {
+   "inputTerm": null,
+   "candidate": [
+    {
+     "rxcui": "1114199",
+     "rxaui": "3744387",
+     "score": "13.96428108215332",
+     "rank": "1",
+     "name": "Xarelto",
+     "source": "RXNORM"
+    },
+    {
+     "rxcui": "1114199",
+     "rxaui": "3751416",
+     "score": "13.96428108215332",
+     "rank": "1",
+     "source": "MMSL"
+    },
+    {
+     "rxcui": "1186305",
+     "rxaui": "3850070",
+     "score": "13.409906225204468",
+     "rank": "3",
+     "name": "Xarelto Pill",
+     "source": "RXNORM"
+    },
+    {
+     "rxcui": "1186304",
+     "rxaui": "3850069",
+     "score": "12.93586024041343",
+     "rank": "4",
+     "name": "Xarelto Oral Product",
+     "source": "RXNORM"
+    }
+   ]
+  }
+ }
+}

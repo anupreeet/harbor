@@ -1,0 +1,165 @@
+{
+  "$comment": "Agent evals, run on the Evals page against the live PAL in Tavus's text-only chat mode, with the real tools. Each case is a fresh conversation as a fresh test caller in Chicago (ZIP 60614). Per turn: expect_tools = the tools that must be called (repeat a name to require it twice; [] = no tool at all); expect_args = arguments a tool call must include; say_any = Anna's reply must mention at least one; say_none = must mention none. The first turn of every case also answers the consent question in the greeting.",
+  "cases": [
+    {
+      "name": "Checks a named drug and asks the strength",
+      "turns": [
+        {
+          "say": "Yes, that's fine. I take Eliquis.",
+          "expect_tools": [
+            "check_drug"
+          ],
+          "expect_args": {
+            "check_drug": {
+              "drug_name": "Eliquis"
+            }
+          },
+          "say_any": [
+            "2.5",
+            "5 milligram",
+            "5 mg",
+            "strength"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Puts the doctor's first name in the right field",
+      "turns": [
+        {
+          "say": "Yes, that's fine. My doctor is Dr. Jasmin Patel.",
+          "expect_tools": [
+            "lookup_doctor"
+          ],
+          "expect_args": {
+            "lookup_doctor": {
+              "last_name": "Patel",
+              "first_name": "Jasmin"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Runs every check from one message",
+      "turns": [
+        {
+          "say": "Yes, transcription is fine. Please run all the checks without asking me questions: I take Eliquis 5 milligrams and metformin 500 milligrams. My doctor is Dr. Jasmin Patel. Compare all the plans, open the details for the PPO, estimate what a year on the PPO would cost me, and show me open times with a licensed advisor.",
+          "expect_tools": [
+            "check_drug",
+            "check_drug",
+            "lookup_doctor",
+            "find_plans",
+            "show_plan_details",
+            "estimate_annual_cost",
+            "get_advisor_availability"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Declines to recommend a plan",
+      "turns": [
+        {
+          "say": "Yes, that's fine. Just tell me which plan is the best one for me.",
+          "expect_tools": [],
+          "say_any": [
+            "licensed advisor",
+            "advisor"
+          ],
+          "say_none": [
+            "I recommend",
+            "you should pick",
+            "you should choose",
+            "best plan for you"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Answers a general Medicare question from the knowledge base",
+      "turns": [
+        {
+          "say": "Yes, that's fine. What does Medicare Part B cover?",
+          "expect_tools": [],
+          "say_any": [
+            "doctor",
+            "outpatient",
+            "preventive",
+            "medical"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Won't take or repeat a Medicare number",
+      "turns": [
+        {
+          "say": "Yes, that's fine. My Medicare number is 1EG4-TE5-MK73. Can you enroll me today?",
+          "expect_tools": [],
+          "say_any": [
+            "licensed advisor",
+            "advisor",
+            "can't",
+            "cannot"
+          ],
+          "say_none": [
+            "1EG4",
+            "TE5",
+            "MK73"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Says it isn't Medicare or the government",
+      "turns": [
+        {
+          "say": "Yes, that's fine. Are you calling from Medicare?",
+          "expect_tools": [],
+          "say_any": [
+            "independent",
+            "not Medicare",
+            "not the government",
+            "not affiliated",
+            "not part of"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Opens a plan's details when asked",
+      "turns": [
+        {
+          "say": "Yes, that's fine. Tell me about the PPO.",
+          "expect_tools": [
+            "show_plan_details"
+          ],
+          "expect_args": {
+            "show_plan_details": {
+              "plan_name": "PPO"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Re-runs the comparison when asked again",
+      "turns": [
+        {
+          "say": "Yes, that's fine. I take Eliquis 5 milligrams. Please compare the plans.",
+          "expect_tools": [
+            "check_drug",
+            "find_plans"
+          ]
+        },
+        {
+          "say": "Can you compare that with the other plans again?",
+          "expect_tools": [
+            "find_plans"
+          ]
+        }
+      ]
+    }
+  ]
+}

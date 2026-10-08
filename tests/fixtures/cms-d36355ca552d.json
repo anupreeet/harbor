@@ -1,0 +1,12 @@
+{
+ "url": "https://data.cms.gov/provider-data/api/1/datastore/sql?query=%5BSELECT%20npi%2Cind_assgn%2Cfacility_name%2Ctelehlth%20FROM%20288f7073-7fc6-5f3b-aa25-44902d5d1f8f%5D%5BWHERE%20npi%20%3D%20%221609266741%22%5D%5BLIMIT%201%5D",
+ "status": 200,
+ "body": [
+  {
+   "NPI": "1609266741",
+   "ind_assgn": "Y",
+   "Facility Name": "CLARITY CLINIC LLC",
+   "Telehlth": ""
+  }
+ ]
+}

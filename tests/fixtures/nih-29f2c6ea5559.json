@@ -1,0 +1,49 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=blood%20thinner&maxEntries=5",
+ "status": 200,
+ "body": {
+  "approximateGroup": {
+   "inputTerm": null,
+   "candidate": [
+    {
+     "rxcui": "318020",
+     "rxaui": "1484107",
+     "score": "10.087533092498779",
+     "rank": "1",
+     "name": "BLOOD TEST",
+     "source": "VANDF"
+    },
+    {
+     "rxcui": "895953",
+     "rxaui": "3050237",
+     "score": "10.087533092498779",
+     "rank": "1",
+     "name": "Blood Stop",
+     "source": "RXNORM"
+    },
+    {
+     "rxcui": "8397",
+     "rxaui": "5478939",
+     "score": "10.087533092498779",
+     "rank": "1",
+     "name": "blood plasma",
+     "source": "ATC"
+    },
+    {
+     "rxcui": "389304",
+     "rxaui": "6807875",
+     "score": "9.831997702503205",
+     "rank": "4",
+     "source": "NDDF"
+    },
+    {
+     "rxcui": "126958",
+     "rxaui": "6802800",
+     "score": "9.827081703651954",
+     "rank": "5",
+     "source": "NDDF"
+    }
+   ]
+  }
+ }
+}

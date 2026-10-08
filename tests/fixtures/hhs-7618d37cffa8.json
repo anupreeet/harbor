@@ -1,0 +1,182 @@
+{
+ "url": "https://npiregistry.cms.hhs.gov/api/?version=2.1&last_name=Patel&state=IL&enumeration_type=NPI-1&limit=20&first_name=Jasmin&city=Chicago",
+ "status": 200,
+ "body": {
+  "result_count": 3,
+  "results": [
+   {
+    "addresses": [
+     {
+      "address_1": "222 N COLUMBUS DR",
+      "address_2": "UNIT #2504",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606017810",
+      "state": "IL",
+      "telephone_number": "917-602-4841"
+     },
+     {
+      "address_1": "16246 PRINCE DR",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "SOUTH HOLLAND",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "604733233",
+      "state": "IL",
+      "telephone_number": "708-915-4965"
+     }
+    ],
+    "basic": {
+     "credential": "PA-C",
+     "enumeration_date": "2015-01-27",
+     "first_name": "JASMIN",
+     "last_name": "PATEL",
+     "last_updated": "2015-01-27",
+     "name_prefix": "--",
+     "name_suffix": "--",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1422420562000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1422420562000",
+    "number": "1609266741",
+    "other_names": [],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "363A00000X",
+      "desc": "Physician Assistant",
+      "license": "085005329",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "PO BOX 5977",
+      "address_2": "DEPT 20-3005",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CAROL STREAM",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "630-754-8792",
+      "postal_code": "601975977",
+      "state": "IL",
+      "telephone_number": "630-754-8788"
+     },
+     {
+      "address_1": "175 W JACKSON BLVD",
+      "address_2": "STE. 2150",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "312-262-6227",
+      "postal_code": "606042615",
+      "state": "IL",
+      "telephone_number": "312-262-6224"
+     }
+    ],
+    "basic": {
+     "credential": "DC",
+     "enumeration_date": "2011-10-10",
+     "first_name": "JASMINA",
+     "last_name": "PATEL",
+     "last_updated": "2012-01-04",
+     "name_prefix": "--",
+     "name_suffix": "--",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1318278319000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1325700577000",
+    "number": "1235413170",
+    "other_names": [],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "111N00000X",
+      "desc": "Chiropractor",
+      "license": "038-012036",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "676 N SAINT CLAIR ST STE 2140",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "312-695-3644",
+      "postal_code": "606113143",
+      "state": "IL",
+      "telephone_number": "312-472-1234"
+     },
+     {
+      "address_1": "676 N SAINT CLAIR ST STE 2140",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "312-695-3644",
+      "postal_code": "606113143",
+      "state": "IL",
+      "telephone_number": "312-472-1234"
+     }
+    ],
+    "basic": {
+     "certification_date": "2022-03-31",
+     "enumeration_date": "2019-04-22",
+     "first_name": "JASMINE",
+     "last_name": "PATEL",
+     "last_updated": "2022-03-31",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1555967824000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1648753936000",
+    "number": "1376106674",
+    "other_names": [],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "363A00000X",
+      "desc": "Physician Assistant",
+      "license": "085006796",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/rxcui/6809/properties.json",
+ "status": 200,
+ "body": {
+  "properties": {
+   "rxcui": "6809",
+   "name": "metformin",
+   "synonym": "",
+   "tty": "IN",
+   "language": "ENG",
+   "suppress": "N",
+   "umlscui": ""
+  }
+ }
+}

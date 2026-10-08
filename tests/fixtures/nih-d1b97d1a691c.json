@@ -1,0 +1,50 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=eliquiss&maxEntries=5",
+ "status": 200,
+ "body": {
+  "approximateGroup": {
+   "inputTerm": null,
+   "candidate": [
+    {
+     "rxcui": "1364436",
+     "rxaui": "5042892",
+     "score": "8.347771644592285",
+     "rank": "1",
+     "name": "Eliquis",
+     "source": "RXNORM"
+    },
+    {
+     "rxcui": "1364436",
+     "rxaui": "5068582",
+     "score": "8.347771644592285",
+     "rank": "1",
+     "source": "MMSL"
+    },
+    {
+     "rxcui": "1364440",
+     "rxaui": "5042896",
+     "score": "8.237663203716279",
+     "rank": "3",
+     "name": "Eliquis Pill",
+     "source": "RXNORM"
+    },
+    {
+     "rxcui": "1364439",
+     "rxaui": "5042895",
+     "score": "8.143101626206876",
+     "rank": "4",
+     "name": "Eliquis Oral Product",
+     "source": "RXNORM"
+    },
+    {
+     "rxcui": "1364438",
+     "rxaui": "5042894",
+     "score": "8.06494993237877",
+     "rank": "5",
+     "name": "apixaban Oral Tablet [Eliquis]",
+     "source": "RXNORM"
+    }
+   ]
+  }
+ }
+}

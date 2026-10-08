@@ -1,0 +1,61 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1114199/related.json?tty=SBD",
+ "status": 200,
+ "body": {
+  "relatedGroup": {
+   "rxcui": null,
+   "conceptGroup": [
+    {
+     "tty": "SBD",
+     "conceptProperties": [
+      {
+       "rxcui": "1114202",
+       "name": "rivaroxaban 10 MG Oral Tablet [Xarelto]",
+       "synonym": "Xarelto 10 MG Oral Tablet",
+       "tty": "SBD",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "1232084",
+       "name": "rivaroxaban 15 MG Oral Tablet [Xarelto]",
+       "synonym": "Xarelto 15 MG Oral Tablet",
+       "tty": "SBD",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "1232088",
+       "name": "rivaroxaban 20 MG Oral Tablet [Xarelto]",
+       "synonym": "Xarelto 20 MG Oral Tablet",
+       "tty": "SBD",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "2059017",
+       "name": "rivaroxaban 2.5 MG Oral Tablet [Xarelto]",
+       "synonym": "Xarelto 2.5 MG Oral Tablet",
+       "tty": "SBD",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "2588066",
+       "name": "rivaroxaban 1 MG/ML Oral Suspension [Xarelto]",
+       "synonym": "Xarelto 1 MG/ML Oral Suspension",
+       "tty": "SBD",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

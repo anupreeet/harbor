@@ -1,0 +1,15 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1364436/properties.json",
+ "status": 200,
+ "body": {
+  "properties": {
+   "rxcui": "1364436",
+   "name": "Eliquis",
+   "synonym": "",
+   "tty": "BN",
+   "language": "ENG",
+   "suppress": "N",
+   "umlscui": ""
+  }
+ }
+}

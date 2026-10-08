@@ -1,0 +1,15 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1114199/properties.json",
+ "status": 200,
+ "body": {
+  "properties": {
+   "rxcui": "1114199",
+   "name": "Xarelto",
+   "synonym": "",
+   "tty": "BN",
+   "language": "ENG",
+   "suppress": "N",
+   "umlscui": ""
+  }
+ }
+}

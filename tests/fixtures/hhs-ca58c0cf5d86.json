@@ -1,0 +1,1890 @@
+{
+ "url": "https://npiregistry.cms.hhs.gov/api/?version=2.1&last_name=Patel&state=IL&enumeration_type=NPI-1&limit=20&city=Chicago",
+ "status": 200,
+ "body": {
+  "result_count": 20,
+  "results": [
+   {
+    "addresses": [
+     {
+      "address_1": "POB 7132960",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606770001",
+      "state": "IL",
+      "telephone_number": "630-469-9200"
+     },
+     {
+      "address_1": "303 E ARMY TRAIL RD STE 200",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "BLOOMINGDALE",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "630-351-3983",
+      "postal_code": "601082143",
+      "state": "IL",
+      "telephone_number": "630-351-2030"
+     }
+    ],
+    "basic": {
+     "certification_date": "2025-10-03",
+     "credential": "OD",
+     "enumeration_date": "2025-02-19",
+     "first_name": "NIDHI",
+     "last_name": "BAROT",
+     "last_updated": "2025-10-03",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1740022502000",
+    "endpoints": [
+     {
+      "address_1": "303 E Army Trail Rd Ste 200",
+      "address_type": "DOM",
+      "affiliation": "N",
+      "city": "Bloomingdale",
+      "contentTypeDescription": "",
+      "country_code": "US",
+      "country_name": "United States",
+      "endpoint": "nbarot296985@dulyhealthandcare.direct-ci.com",
+      "endpointType": "DIRECT",
+      "endpointTypeDescription": "Direct Messaging Address",
+      "postal_code": "601082143",
+      "state": "IL",
+      "use": "DIRECT",
+      "useDescription": "Direct"
+     }
+    ],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1759516163000",
+    "number": "1275339442",
+    "other_names": [
+     {
+      "code": "1",
+      "credential": "OD",
+      "first_name": "NIDHI",
+      "last_name": "PATEL",
+      "middle_name": "RAJESH",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "152W00000X",
+      "desc": "Optometrist",
+      "license": "046011960",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "225 E CHICAGO AVE",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606112991",
+      "state": "IL",
+      "telephone_number": "614-530-1042"
+     },
+     {
+      "address_1": "225 E CHICAGO AVE UNIT 1002",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606112991",
+      "state": "IL",
+      "telephone_number": "612-227-4000"
+     }
+    ],
+    "basic": {
+     "certification_date": "2025-06-19",
+     "credential": "CPNP-PC",
+     "enumeration_date": "2016-08-28",
+     "first_name": "SHIVANI",
+     "last_name": "BHATNAGAR",
+     "last_updated": "2025-06-19",
+     "middle_name": "A",
+     "sex": "F",
+     "sole_proprietor": "YES",
+     "status": "A"
+    },
+    "created_epoch": "1472388351000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [
+     {
+      "code": "05",
+      "desc": "MEDICAID",
+      "identifier": "0213197",
+      "issuer": null,
+      "state": "OH"
+     },
+     {
+      "code": "01",
+      "desc": "Other (non-Medicare)",
+      "identifier": "H611330",
+      "issuer": "CGS Medicare",
+      "state": "OH"
+     }
+    ],
+    "last_updated_epoch": "1750355688000",
+    "number": "1558817767",
+    "other_names": [
+     {
+      "code": "1",
+      "credential": "CPNP-PC",
+      "first_name": "SHIVANI",
+      "last_name": "PATEL",
+      "middle_name": "A",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [
+     {
+      "address_1": "1725 W HARRISON ST STE 710",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606123863",
+      "state": "IL",
+      "telephone_number": "312-563-6335"
+     }
+    ],
+    "taxonomies": [
+     {
+      "code": "363LP0200X",
+      "desc": "Nurse Practitioner, Pediatrics",
+      "license": "APRNCNP019440",
+      "primary": false,
+      "state": "OH",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "363LP0200X",
+      "desc": "Nurse Practitioner, Pediatrics",
+      "license": "209031243",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "7315 W IRVING PARK RD",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606343547",
+      "state": "IL",
+      "telephone_number": "773-786-2340"
+     },
+     {
+      "address_1": "790 REMINGTON BLVD",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "BOLINGBROOK",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "604404909",
+      "state": "IL"
+     }
+    ],
+    "basic": {
+     "certification_date": "2024-07-03",
+     "credential": "PT",
+     "enumeration_date": "2021-03-14",
+     "first_name": "NIYATI",
+     "last_name": "CHAUHAN",
+     "last_updated": "2024-07-03",
+     "middle_name": "RAHUL",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1615769893000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1720036011000",
+    "number": "1477138170",
+    "other_names": [
+     {
+      "code": "1",
+      "first_name": "NIYATI",
+      "last_name": "PATEL",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "225100000X",
+      "desc": "Physical Therapist",
+      "license": "070.025588",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "1645 W JACKSON BLVD",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606123276",
+      "state": "IL",
+      "telephone_number": "312-942-2200"
+     },
+     {
+      "address_1": "1650 W HARRISON ST STE 466",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606123800",
+      "state": "IL"
+     }
+    ],
+    "basic": {
+     "certification_date": "2020-06-04",
+     "credential": "MD",
+     "enumeration_date": "2017-06-23",
+     "first_name": "PRIYA",
+     "last_name": "CREED",
+     "last_updated": "2020-06-04",
+     "middle_name": "VIJAY",
+     "name_prefix": "Dr.",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1498251283000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1591280631000",
+    "number": "1962922542",
+    "other_names": [
+     {
+      "code": "1",
+      "credential": "MD",
+      "first_name": "PRIYA",
+      "last_name": "PATEL",
+      "middle_name": "VIJAY",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "208000000X",
+      "desc": "Pediatrics",
+      "license": "125-071144",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "1725 W HARRISON ST STE 10",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606123849",
+      "state": "IL",
+      "telephone_number": "312-563-3700"
+     },
+     {
+      "address_1": "1725 W HARRISON ST STE 10",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606123849",
+      "state": "IL",
+      "telephone_number": "312-563-3700"
+     }
+    ],
+    "basic": {
+     "certification_date": "2023-06-09",
+     "credential": "MD",
+     "enumeration_date": "2008-07-24",
+     "first_name": "BINA",
+     "last_name": "DESAI",
+     "last_updated": "2023-06-09",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1216923887000",
+    "endpoints": [
+     {
+      "address_1": "2160 S 1st Ave",
+      "address_type": "DOM",
+      "affiliation": "N",
+      "city": "Maywood",
+      "contentTypeDescription": "",
+      "country_code": "US",
+      "country_name": "United States",
+      "endpoint": "BDESAI1020@DIRECT.LUHS.ORG",
+      "endpointType": "DIRECT",
+      "endpointTypeDescription": "Direct Messaging Address",
+      "postal_code": "601533328",
+      "state": "IL",
+      "useDescription": ""
+     }
+    ],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1686323838000",
+    "number": "1467617845",
+    "other_names": [
+     {
+      "code": "1",
+      "credential": "MD",
+      "first_name": "BINA",
+      "last_name": "PATEL",
+      "prefix": "--",
+      "suffix": "--",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [
+     {
+      "address_1": "2160 S 1ST AVE",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "MAYWOOD",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "601533328",
+      "state": "IL",
+      "telephone_number": "708-216-5368"
+     }
+    ],
+    "taxonomies": [
+     {
+      "code": "207R00000X",
+      "desc": "Internal Medicine",
+      "license": "125053827",
+      "primary": false,
+      "state": "IL",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "208M00000X",
+      "desc": "Hospitalist",
+      "license": "036117987",
+      "primary": false,
+      "state": "IL",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "207RH0002X",
+      "desc": "Internal Medicine, Hospice and Palliative Medicine",
+      "license": "036117987",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "355 E ERIE ST",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606113167",
+      "state": "IL",
+      "telephone_number": "312-238-1000"
+     },
+     {
+      "address_1": "355 E ERIE ST",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606113167",
+      "state": "IL",
+      "telephone_number": "312-238-1000"
+     }
+    ],
+    "basic": {
+     "certification_date": "2022-06-23",
+     "credential": "M.D. M.P.H.",
+     "enumeration_date": "2010-06-17",
+     "first_name": "SANGEETA",
+     "last_name": "DRIVER",
+     "last_updated": "2022-06-23",
+     "middle_name": "P",
+     "name_prefix": "Dr.",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1276827952000",
+    "endpoints": [
+     {
+      "address_1": "355 E Erie St",
+      "address_type": "DOM",
+      "affiliation": "N",
+      "city": "Chicago",
+      "contentOtherDescription": "XML",
+      "contentType": "OTHER",
+      "contentTypeDescription": "Other",
+      "country_code": "US",
+      "country_name": "United States",
+      "endpoint": "spatel@direct.ric.org",
+      "endpointDescription": "Shirley Ryan AbilityLab",
+      "endpointType": "DIRECT",
+      "endpointTypeDescription": "Direct Messaging Address",
+      "postal_code": "606113167",
+      "state": "IL",
+      "use": "OTHER",
+      "useDescription": "Other",
+      "useOtherDescription": "referrals"
+     }
+    ],
+    "enumeration_type": "NPI-1",
+    "identifiers": [
+     {
+      "code": "05",
+      "desc": "MEDICAID",
+      "identifier": "036131981-1",
+      "issuer": null,
+      "state": "IL"
+     }
+    ],
+    "last_updated_epoch": "1656000834000",
+    "number": "1588985147",
+    "other_names": [
+     {
+      "code": "1",
+      "credential": "MD",
+      "first_name": "SANGEETA",
+      "last_name": "PATEL",
+      "prefix": "--",
+      "suffix": "--",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "208100000X",
+      "desc": "Physical Medicine & Rehabilitation",
+      "license": "036-131981",
+      "primary": false,
+      "state": "IL",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "2081P0301X",
+      "desc": "Physical Medicine & Rehabilitation, Brain Injury Medicine",
+      "license": "036-131981",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "PO BOX 7410884",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "702-977-1496",
+      "postal_code": "606740884",
+      "state": "IL",
+      "telephone_number": "702-899-0595"
+     },
+     {
+      "address_1": "1350 S NOVA RD",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "DAYTONA BEACH",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "321145812",
+      "state": "FL",
+      "telephone_number": "872-231-3162"
+     }
+    ],
+    "basic": {
+     "certification_date": "2025-12-05",
+     "credential": "PA-C",
+     "enumeration_date": "2022-09-16",
+     "first_name": "KRUPA",
+     "last_name": "GANDHI",
+     "last_updated": "2025-12-05",
+     "sex": "F",
+     "sole_proprietor": "YES",
+     "status": "A"
+    },
+    "created_epoch": "1663362398000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1764943990000",
+    "number": "1174245922",
+    "other_names": [
+     {
+      "code": "1",
+      "first_name": "KRUPA",
+      "last_name": "PATEL",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "363AM0700X",
+      "desc": "Physician Assistant, Medical",
+      "license": null,
+      "primary": false,
+      "state": null,
+      "taxonomy_group": ""
+     },
+     {
+      "code": "363AM0700X",
+      "desc": "Physician Assistant, Medical",
+      "license": "PA9120025",
+      "primary": true,
+      "state": "FL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "67 W JACKSON BLVD",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "312-386-1200",
+      "postal_code": "606043507",
+      "state": "IL",
+      "telephone_number": "312-386-1100"
+     },
+     {
+      "address_1": "205 W WACKER DR",
+      "address_2": "SUITE 1020",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606061216",
+      "state": "IL",
+      "telephone_number": "312-640-0329"
+     }
+    ],
+    "basic": {
+     "credential": "PT",
+     "enumeration_date": "2008-10-08",
+     "first_name": "GOPI",
+     "last_name": "HANOMAN",
+     "last_updated": "2009-02-27",
+     "middle_name": "A",
+     "name_prefix": "--",
+     "name_suffix": "--",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1223485982000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [
+     {
+      "code": "01",
+      "desc": "Other (non-Medicare)",
+      "identifier": "1619980",
+      "issuer": "BCBS of IL",
+      "state": "IL"
+     }
+    ],
+    "last_updated_epoch": "1235769034000",
+    "number": "1427209436",
+    "other_names": [
+     {
+      "code": "1",
+      "credential": "PT",
+      "first_name": "GOPI",
+      "last_name": "PATEL",
+      "middle_name": "A",
+      "prefix": "--",
+      "suffix": "--",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "225100000X",
+      "desc": "Physical Therapist",
+      "license": "070013681",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "945 N 12TH ST",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "MILWAUKEE",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "532331305",
+      "state": "WI",
+      "telephone_number": "414-219-2000"
+     },
+     {
+      "address_1": "PO BOX 735044",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606735044",
+      "state": "IL"
+     }
+    ],
+    "basic": {
+     "certification_date": "2023-09-25",
+     "credential": "MD",
+     "enumeration_date": "2008-05-28",
+     "first_name": "JAYANT",
+     "last_name": "HIRPARA",
+     "last_updated": "2023-09-25",
+     "name_prefix": "Dr.",
+     "sex": "M",
+     "sole_proprietor": "YES",
+     "status": "A"
+    },
+    "created_epoch": "1211989791000",
+    "endpoints": [
+     {
+      "address_1": "945 N 12th St",
+      "address_type": "DOM",
+      "affiliation": "N",
+      "city": "Milwaukee",
+      "contentTypeDescription": "",
+      "country_code": "US",
+      "country_name": "United States",
+      "endpoint": "jhirpara1840@direct.myadvocateaurora.org",
+      "endpointType": "DIRECT",
+      "endpointTypeDescription": "Direct Messaging Address",
+      "postal_code": "532331305",
+      "state": "WI",
+      "useDescription": ""
+     },
+     {
+      "address_1": "945 N 12th St",
+      "address_type": "DOM",
+      "affiliation": "N",
+      "city": "Milwaukee",
+      "contentTypeDescription": "",
+      "country_code": "US",
+      "country_name": "United States",
+      "endpoint": "https://EpicFHIR.aurora.org/FHIR/MYAURORA/api/FHIR/DSTU2/",
+      "endpointType": "FHIR",
+      "endpointTypeDescription": "FHIR URL",
+      "postal_code": "532331305",
+      "state": "WI",
+      "useDescription": ""
+     }
+    ],
+    "enumeration_type": "NPI-1",
+    "identifiers": [
+     {
+      "code": "05",
+      "desc": "MEDICAID",
+      "identifier": "35289200",
+      "issuer": null,
+      "state": "WI"
+     }
+    ],
+    "last_updated_epoch": "1695649401000",
+    "number": "1912165846",
+    "other_names": [
+     {
+      "code": "5",
+      "credential": "MD",
+      "first_name": "JAYANT",
+      "last_name": "PATEL",
+      "prefix": "--",
+      "suffix": "--",
+      "type": "Other Name"
+     }
+    ],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "207R00000X",
+      "desc": "Internal Medicine",
+      "license": "51823",
+      "primary": false,
+      "state": "WI",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "208M00000X",
+      "desc": "Hospitalist",
+      "license": "51823",
+      "primary": true,
+      "state": "WI",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "17495 LA GRANGE RD",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "TINLEY PARK",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "708-226-7014",
+      "postal_code": "604877581",
+      "state": "IL",
+      "telephone_number": "708-226-7050"
+     },
+     {
+      "address_1": "PO BOX 713260",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606771260",
+      "state": "IL",
+      "telephone_number": "630-469-9200"
+     }
+    ],
+    "basic": {
+     "certification_date": "2023-08-08",
+     "credential": "MD",
+     "enumeration_date": "2007-05-01",
+     "first_name": "NAFISA",
+     "last_name": "IBRAHIM",
+     "last_updated": "2023-08-08",
+     "middle_name": "B",
+     "name_prefix": "Dr.",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1178032867000",
+    "endpoints": [
+     {
+      "address_1": "17495 La Grange Rd",
+      "address_type": "DOM",
+      "affiliation": "N",
+      "city": "Tinley Park",
+      "contentTypeDescription": "",
+      "country_code": "US",
+      "country_name": "United States",
+      "endpoint": "nibrahim119414@dulyhealthandcare.direct-ci.com",
+      "endpointType": "DIRECT",
+      "endpointTypeDescription": "Direct Messaging Address",
+      "postal_code": "604877581",
+      "state": "IL",
+      "useDescription": ""
+     }
+    ],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1691522002000",
+    "number": "1053532002",
+    "other_names": [
+     {
+      "code": "1",
+      "first_name": "NAFISA",
+      "last_name": "PATEL",
+      "middle_name": "BANU",
+      "prefix": "Dr.",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "2085R0202X",
+      "desc": "Radiology, Diagnostic Radiology",
+      "license": "274583",
+      "primary": false,
+      "state": "NY",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "2085R0202X",
+      "desc": "Radiology, Diagnostic Radiology",
+      "license": "15000",
+      "primary": true,
+      "state": "RI",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "1425 PORTLAND AVE",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "ROCHESTER",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "585-922-4622",
+      "postal_code": "14621",
+      "state": "NY",
+      "telephone_number": "585-922-4020"
+     },
+     {
+      "address_1": "100 KINGS HWY S",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "ROCHESTER",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "146175504",
+      "state": "NY",
+      "telephone_number": "585-922-0553"
+     }
+    ],
+    "basic": {
+     "certification_date": "2021-04-15",
+     "credential": "PA",
+     "enumeration_date": "2012-07-05",
+     "first_name": "DIPAL",
+     "last_name": "JAISINGHANI",
+     "last_updated": "2023-12-06",
+     "middle_name": "DINESH",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1341505765000",
+    "endpoints": [
+     {
+      "address_1": "1555 Long Pond Rd",
+      "address_type": "DOM",
+      "affiliation": "N",
+      "city": "Rochester",
+      "contentTypeDescription": "",
+      "country_code": "US",
+      "country_name": "United States",
+      "endpoint": "dpatel253905@direct.rochesterregional.org",
+      "endpointType": "DIRECT",
+      "endpointTypeDescription": "Direct Messaging Address",
+      "postal_code": "146264122",
+      "state": "NY",
+      "useDescription": ""
+     }
+    ],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1701875424000",
+    "number": "1538424635",
+    "other_names": [
+     {
+      "code": "1",
+      "first_name": "DIPAL",
+      "last_name": "PATEL",
+      "middle_name": "DINESH",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [
+     {
+      "address_1": "1725 W HARRISON ST",
+      "address_2": "STE 821",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "312-942-3192",
+      "postal_code": "606123841",
+      "state": "IL",
+      "telephone_number": "312-942-5904"
+     },
+     {
+      "address_1": "1725 W HARRISON ST",
+      "address_2": "STE 821",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "312-942-3192",
+      "postal_code": "606123841",
+      "state": "IL",
+      "telephone_number": "312-942-5904"
+     },
+     {
+      "address_1": "20 HAGEN DR STE 100",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "ROCHESTER",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "585-922-4622",
+      "postal_code": "146252665",
+      "state": "NY",
+      "telephone_number": "585-922-4020"
+     },
+     {
+      "address_1": "1555 LONG POND RD",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "ROCHESTER",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "585-723-7551",
+      "postal_code": "146264122",
+      "state": "NY",
+      "telephone_number": "585-922-4020"
+     },
+     {
+      "address_1": "55 GENESEE ST",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "ROCHESTER",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "585-922-4622",
+      "postal_code": "146113201",
+      "state": "NY",
+      "telephone_number": "585-368-3591"
+     }
+    ],
+    "taxonomies": [
+     {
+      "code": "363AM0700X",
+      "desc": "Physician Assistant, Medical",
+      "license": "085004972",
+      "primary": false,
+      "state": "IL",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "363AM0700X",
+      "desc": "Physician Assistant, Medical",
+      "license": "0010-03611",
+      "primary": false,
+      "state": "NC",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "363AM0700X",
+      "desc": "Physician Assistant, Medical",
+      "license": "022586",
+      "primary": true,
+      "state": "NY",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "1250 N LA SALLE DR APT 1610",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606101955",
+      "state": "IL",
+      "telephone_number": "312-498-6620"
+     },
+     {
+      "address_1": "4608 FOXGLOVE CT",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "FLOWER MOUND",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "750221034",
+      "state": "TX",
+      "telephone_number": "972-922-8460"
+     }
+    ],
+    "basic": {
+     "certification_date": "2025-05-22",
+     "credential": "PT",
+     "enumeration_date": "2007-05-29",
+     "first_name": "KAJAL",
+     "last_name": "JINDAL",
+     "last_updated": "2025-05-22",
+     "name_prefix": "Mrs.",
+     "sex": "F",
+     "sole_proprietor": "YES",
+     "status": "A"
+    },
+    "created_epoch": "1180475251000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1747948021000",
+    "number": "1225239130",
+    "other_names": [
+     {
+      "code": "1",
+      "credential": "PT, DPT",
+      "first_name": "KAJAL",
+      "last_name": "PATEL",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "225100000X",
+      "desc": "Physical Therapist",
+      "license": "070012349",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "600 OAKMONT LN STE 600C",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "WESTMONT",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "630-575-7450",
+      "postal_code": "605595548",
+      "state": "IL",
+      "telephone_number": "630-575-6250"
+     },
+     {
+      "address_1": "23800 ORCHARD LAKE RD STE 3C",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "FARMINGTON HILLS",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "248-474-5519",
+      "postal_code": "483362560",
+      "state": "MI",
+      "telephone_number": "248-474-5516"
+     }
+    ],
+    "basic": {
+     "credential": "DPT",
+     "enumeration_date": "2007-04-02",
+     "first_name": "HIMA",
+     "last_name": "KAMBHAMPATI",
+     "last_updated": "2018-02-19",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1175526348000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1519074222000",
+    "number": "1952422891",
+    "other_names": [
+     {
+      "code": "1",
+      "credential": "DPT",
+      "first_name": "HIMA",
+      "last_name": "PATEL",
+      "prefix": "--",
+      "suffix": "--",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [
+     {
+      "address_1": "500 N KINGSBURY ST",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "312-644-4567",
+      "postal_code": "606545721",
+      "state": "IL",
+      "telephone_number": "312-527-5801"
+     }
+    ],
+    "taxonomies": [
+     {
+      "code": "225100000X",
+      "desc": "Physical Therapist",
+      "license": "5501018440",
+      "primary": true,
+      "state": "MI",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "225100000X",
+      "desc": "Physical Therapist",
+      "license": "070015677",
+      "primary": false,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "405 W JACKSON ST",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CARBONDALE",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "618-457-0469",
+      "postal_code": "629011462",
+      "state": "IL",
+      "telephone_number": "618-549-0721"
+     },
+     {
+      "address_1": "4238 EL CAMINO REAL",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "PALO ALTO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "943064404",
+      "state": "CA",
+      "telephone_number": "510-504-4487"
+     }
+    ],
+    "basic": {
+     "certification_date": "2021-08-05",
+     "credential": "MD",
+     "enumeration_date": "2008-05-15",
+     "first_name": "ANAND",
+     "last_name": "KARSAN",
+     "last_updated": "2021-08-05",
+     "middle_name": "S",
+     "name_prefix": "Dr.",
+     "sex": "M",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1210878364000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [
+     {
+      "code": "01",
+      "desc": "Other (non-Medicare)",
+      "identifier": "036.127085",
+      "issuer": "Medical License",
+      "state": "IL"
+     }
+    ],
+    "last_updated_epoch": "1628167242000",
+    "number": "1780851956",
+    "other_names": [
+     {
+      "code": "2",
+      "credential": "MD",
+      "first_name": "ANAND",
+      "last_name": "PATEL",
+      "middle_name": "S",
+      "prefix": "Dr.",
+      "type": "Professional Name"
+     }
+    ],
+    "practiceLocations": [
+     {
+      "address_1": "1740 W TAYLOR ST",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606127232",
+      "state": "IL",
+      "telephone_number": "866-600-2273"
+     }
+    ],
+    "taxonomies": [
+     {
+      "code": "207P00000X",
+      "desc": "Emergency Medicine",
+      "license": "0101250455",
+      "primary": false,
+      "state": "VA",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "207P00000X",
+      "desc": "Emergency Medicine",
+      "license": "036.127085",
+      "primary": false,
+      "state": "IL",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "207P00000X",
+      "desc": "Emergency Medicine",
+      "license": "35.099343",
+      "primary": false,
+      "state": "OH",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "207P00000X",
+      "desc": "Emergency Medicine",
+      "license": "47910",
+      "primary": true,
+      "state": "TN",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "101 N BRAND BLVD FL 11",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "GLENDALE",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "912032638",
+      "state": "CA",
+      "telephone_number": "833-447-2775"
+     },
+     {
+      "address_1": "PO BOX 845347",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "DALLAS",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "752845347",
+      "state": "TX"
+     }
+    ],
+    "basic": {
+     "certification_date": "2024-01-23",
+     "credential": "M.D.",
+     "enumeration_date": "2008-06-17",
+     "first_name": "KINNARI",
+     "last_name": "KHATRI",
+     "last_updated": "2024-01-23",
+     "middle_name": "PATEL",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1213715312000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1706029742000",
+    "number": "1245490853",
+    "other_names": [
+     {
+      "code": "1",
+      "credential": "M.D.",
+      "first_name": "KINNARI",
+      "last_name": "PATEL",
+      "middle_name": "BALDEV",
+      "prefix": "--",
+      "suffix": "--",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [
+     {
+      "address_1": "9900 SPECTRUM DR",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "AUSTIN",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "787174555",
+      "state": "TX",
+      "telephone_number": "205-266-5462"
+     },
+     {
+      "address_1": "900 SE 5TH ST STE 22",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "BENTONVILLE",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "727126090",
+      "state": "AR",
+      "telephone_number": "183-344-7277"
+     },
+     {
+      "address_1": "121 S TEJON ST STE 900",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "COLORADO SPRINGS",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "809032207",
+      "state": "CO",
+      "telephone_number": "833-447-2775"
+     },
+     {
+      "address_1": "5575 S SEMORAN BLVD STE 361265TH",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "ORLANDO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "328221747",
+      "state": "FL",
+      "telephone_number": "833-447-2775"
+     },
+     {
+      "address_1": "1420 SOUTHLAKE PLAZA DR",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "MORROW",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "302601756",
+      "state": "GA",
+      "telephone_number": "833-447-2775"
+     },
+     {
+      "address_1": "500 N MICHIGAN AVE STE 536",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606113755",
+      "state": "IL",
+      "telephone_number": "833-447-2775"
+     },
+     {
+      "address_1": "101 BILLERICA AVE STE 204",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "NORTH BILLERICA",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "018621271",
+      "state": "MA",
+      "telephone_number": "833-447-2775"
+     },
+     {
+      "address_1": "5 DOCTORS PARK",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CAPE GIRARDEAU",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "637034927",
+      "state": "MO",
+      "telephone_number": "833-447-2775"
+     },
+     {
+      "address_1": "6135 PARK SOUTH DR STE 510",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHARLOTTE",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "282100100",
+      "state": "NC",
+      "telephone_number": "833-447-2775"
+     },
+     {
+      "address_1": "9900 SPECTRUM DR",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "AUSTIN",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "787174555",
+      "state": "TX",
+      "telephone_number": "833-447-2775"
+     },
+     {
+      "address_1": "4295 CROMWELL RD STE 308",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHATTANOOGA",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "374212163",
+      "state": "TN",
+      "telephone_number": "833-447-2775"
+     },
+     {
+      "address_1": "7014 13TH AVE STE 202",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "BROOKLYN",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "112281604",
+      "state": "NY",
+      "telephone_number": "833-447-2775"
+     }
+    ],
+    "taxonomies": [
+     {
+      "code": "207L00000X",
+      "desc": "Anesthesiology",
+      "license": "N7291",
+      "primary": true,
+      "state": "TX",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "207L00000X",
+      "desc": "Anesthesiology",
+      "license": "036.123552",
+      "primary": false,
+      "state": "IL",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "207L00000X",
+      "desc": "Anesthesiology",
+      "license": "290325",
+      "primary": false,
+      "state": "MA",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "230 E OHIO ST",
+      "address_2": "SUITE 120",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606113265",
+      "state": "IL",
+      "telephone_number": "917-414-9434"
+     },
+     {
+      "address_1": "230 E OHIO ST",
+      "address_2": "STE 120",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606113265",
+      "state": "IL",
+      "telephone_number": "917-414-9434"
+     }
+    ],
+    "basic": {
+     "credential": "OD",
+     "enumeration_date": "2006-08-31",
+     "first_name": "TANVI",
+     "last_name": "MAGO",
+     "last_updated": "2011-01-24",
+     "middle_name": "DINESH",
+     "name_prefix": "Dr.",
+     "name_suffix": "--",
+     "sex": "F",
+     "sole_proprietor": "YES",
+     "status": "A"
+    },
+    "created_epoch": "1157060586000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [
+     {
+      "code": "05",
+      "desc": "MEDICAID",
+      "identifier": "046.009935",
+      "issuer": null,
+      "state": "IL"
+     },
+     {
+      "code": "05",
+      "desc": "MEDICAID",
+      "identifier": "046009935",
+      "issuer": null,
+      "state": "IL"
+     }
+    ],
+    "last_updated_epoch": "1295896275000",
+    "number": "1659483337",
+    "other_names": [
+     {
+      "code": "1",
+      "credential": "O.D.",
+      "first_name": "TANVI",
+      "last_name": "PATEL",
+      "middle_name": "DINESH",
+      "prefix": "--",
+      "suffix": "--",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "152W00000X",
+      "desc": "Optometrist",
+      "license": "6844",
+      "primary": false,
+      "state": "NY",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "152W00000X",
+      "desc": "Optometrist",
+      "license": "9935",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "7531 S STONY ISLAND AVE",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606493954",
+      "state": "IL"
+     },
+     {
+      "address_1": "7531 S STONY ISLAND AVE",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606493954",
+      "state": "IL",
+      "telephone_number": "773-947-7703"
+     }
+    ],
+    "basic": {
+     "enumeration_date": "2012-12-11",
+     "first_name": "KAMINI",
+     "last_name": "MEHTA",
+     "last_updated": "2012-12-11",
+     "name_prefix": "--",
+     "name_suffix": "--",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1355245154000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1355245154000",
+    "number": "1760727127",
+    "other_names": [
+     {
+      "code": "1",
+      "credential": "DPT",
+      "first_name": "KAMINI",
+      "last_name": "PATEL",
+      "prefix": "--",
+      "suffix": "--",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "225100000X",
+      "desc": "Physical Therapist",
+      "license": "070017428",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "5145 N CALIFORNIA AVE",
+      "address_2": "SCH DEPT OF REHAB SERVICES",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "773-907-3032",
+      "postal_code": "606253661",
+      "state": "IL",
+      "telephone_number": "773-878-8200"
+     },
+     {
+      "address_1": "5145 N CALIFORNIA AVE",
+      "address_2": "SCH DEPT OF REHAB SERVICES",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "773-907-3032",
+      "postal_code": "606253661",
+      "state": "IL",
+      "telephone_number": "773-878-8200"
+     }
+    ],
+    "basic": {
+     "certification_date": "2021-12-29",
+     "credential": "D.O.",
+     "enumeration_date": "2006-05-09",
+     "first_name": "KETKI",
+     "last_name": "MODI",
+     "last_updated": "2022-07-21",
+     "name_prefix": "Dr.",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1147150139000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1658438291000",
+    "number": "1477502326",
+    "other_names": [
+     {
+      "code": "1",
+      "credential": "D.O.",
+      "first_name": "KETKI",
+      "last_name": "PATEL",
+      "prefix": "Dr.",
+      "suffix": "--",
+      "type": "Former Name"
+     }
+    ],
+    "practiceLocations": [],
+    "taxonomies": [
+     {
+      "code": "208100000X",
+      "desc": "Physical Medicine & Rehabilitation",
+      "license": "036-096575",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "500 S CLINTON ST APT 713",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606074328",
+      "state": "IL",
+      "telephone_number": "248-378-0010"
+     },
+     {
+      "address_1": "500 S CLINTON ST APT 713",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606074328",
+      "state": "IL",
+      "telephone_number": "248-378-0010"
+     }
+    ],
+    "basic": {
+     "certification_date": "2025-06-20",
+     "enumeration_date": "2025-03-27",
+     "first_name": "AARTI",
+     "last_name": "PATEL",
+     "last_updated": "2025-06-20",
+     "middle_name": "KAMALESH",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1743111904000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1750440110000",
+    "number": "1184427163",
+    "other_names": [],
+    "practiceLocations": [
+     {
+      "address_1": "17050 CARRIAGE WAY",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "NORTHVILLE",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "481686602",
+      "state": "MI",
+      "telephone_number": "248-378-0010"
+     }
+    ],
+    "taxonomies": [
+     {
+      "code": "390200000X",
+      "desc": "Student in an Organized Health Care Education/Training Program",
+      "license": null,
+      "primary": true,
+      "state": null,
+      "taxonomy_group": ""
+     }
+    ]
+   },
+   {
+    "addresses": [
+     {
+      "address_1": "251 E HURON ST # F5-704",
+      "address_purpose": "MAILING",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606112908",
+      "state": "IL"
+     },
+     {
+      "address_1": "251 E HURON ST # F5-704",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "CHICAGO",
+      "country_code": "US",
+      "country_name": "United States",
+      "postal_code": "606112908",
+      "state": "IL",
+      "telephone_number": "312-695-0061"
+     }
+    ],
+    "basic": {
+     "certification_date": "2023-05-05",
+     "enumeration_date": "2019-03-29",
+     "first_name": "AASHKA",
+     "last_name": "PATEL",
+     "last_updated": "2023-05-05",
+     "middle_name": "HARISH",
+     "sex": "F",
+     "sole_proprietor": "NO",
+     "status": "A"
+    },
+    "created_epoch": "1553871319000",
+    "endpoints": [],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": "1683306578000",
+    "number": "1245791466",
+    "other_names": [],
+    "practiceLocations": [
+     {
+      "address_1": "2160 S 1ST AVE",
+      "address_purpose": "LOCATION",
+      "address_type": "DOM",
+      "city": "MAYWOOD",
+      "country_code": "US",
+      "country_name": "United States",
+      "fax_number": "708-216-4943",
+      "postal_code": "601533328",
+      "state": "IL",
+      "telephone_number": "708-216-4943"
+     }
+    ],
+    "taxonomies": [
+     {
+      "code": "207R00000X",
+      "desc": "Internal Medicine",
+      "license": "125074806",
+      "primary": false,
+      "state": "IL",
+      "taxonomy_group": ""
+     },
+     {
+      "code": "207L00000X",
+      "desc": "Anesthesiology",
+      "license": "125074806",
+      "primary": true,
+      "state": "IL",
+      "taxonomy_group": ""
+     }
+    ]
+   }
+  ]
+ }
+}

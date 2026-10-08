@@ -1,0 +1,156 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/rxcui/6809/related.json?tty=IN+BN",
+ "status": 200,
+ "body": {
+  "relatedGroup": {
+   "rxcui": null,
+   "conceptGroup": [
+    {
+     "tty": "BN",
+     "conceptProperties": [
+      {
+       "rxcui": "1372692",
+       "name": "Kazano",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "1372706",
+       "name": "Jentadueto",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "1372730",
+       "name": "Kombiglyze",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "1372738",
+       "name": "Janumet",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "151827",
+       "name": "Glucophage",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "1545151",
+       "name": "Invokamet",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "1592713",
+       "name": "Xigduo",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "1664316",
+       "name": "Synjardy",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "1992686",
+       "name": "Segluromet",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "2359280",
+       "name": "Trijardy",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "2677156",
+       "name": "Zituvimet",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "405304",
+       "name": "Riomet",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "602411",
+       "name": "Actoplus Met",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      },
+      {
+       "rxcui": "645109",
+       "name": "Glumetza",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      }
+     ]
+    },
+    {
+     "tty": "IN",
+     "conceptProperties": [
+      {
+       "rxcui": "6809",
+       "name": "metformin",
+       "synonym": "",
+       "tty": "IN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
