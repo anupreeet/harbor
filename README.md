@@ -6,6 +6,9 @@ medications** in the national drug database (or **reads them off your shared scr
 a Postgres catalog, **books you with a licensed advisor**, and keeps it all in your account so the next call
 picks up where this one stopped. She never picks a plan for you or enrolls you; a licensed human does that.
 
+**Live:** https://harbor-umber.vercel.app (Vercel + Neon). Sign-up asks for an invite code, because every call
+spends Tavus minutes; the code comes with this link.
+
 ## Why this, for a Tavus customer
 
 **The buyer is a Medicare insurance brokerage, and the moment is now.** Medicare's Annual Enrollment
@@ -109,7 +112,7 @@ trace; verified facts and Tavus memory start the next call; and the dev loop is 
 | `agent/pal.json` | Face, LLM, turn-taking, perception (including "is the caller showing a prescription list?"), speech hints |
 | `agent/system-prompt.md` | Who Anna is, the order of the conversation, reading a shared screen, the line she never crosses, tool rules |
 | `agent/tools.json` | Every tool's schema, description, delivery and `on_call` / `on_resolve`. The server validates arguments against the **same** JSON, so the contract can't drift |
-| `agent/objectives.json` | The CMS pre-enrollment topics as a branching checklist (a Medicaid branch flags dual eligibility) |
+| `agent/objectives.json` | The milestones a call must reach: consent, doctors and medications, a next step. Questions a caller may skip stay in the prompt (Tavus re-asks an active objective every turn) |
 | `agent/guardrails.json` | No plan recommendations, not Medicare, no enrollment or sensitive data, no medical advice |
 
 `npm run agent:sync` reconciles these with Tavus idempotently (upsert by name, attach, prune strays; objectives
@@ -125,7 +128,7 @@ are recreated only when their content changes). `npm run agent:check` prints the
 | `custom_greeting` | AI disclosure, CMS disclaimer, transcription notice | Spoken verbatim and can't be interrupted, so compliance-critical words don't depend on the model |
 | Raven perception + screen share | Reading prescription lists and bottles; spotting a third party answering for the caller | Showing beats spelling for a 70-year-old; and a family member answering is a real compliance issue |
 | `conversational_context` | Location, today's date, the chosen topic, and what earlier calls verified | Memory comes from the CRM, the one place facts are verified, so Anna never "remembers" something unchecked |
-| Objectives, guardrails | CMS topics; four compliance rules | They steer the model; the hard guarantees are in code |
+| Objectives, guardrails | Three milestones; four compliance rules | They steer the model; the hard guarantees are in code |
 | `conversation.respond` | Typing to Anna, tapping an option on the canvas | Some callers can't or won't say it out loud |
 | Knowledge Base | Five Medicare.gov documents (incl. the *Medicare & You 2026* handbook), attached by tag, `balanced` retrieval | General questions answered from official text. Never used for our plans' prices or networks: those come only from tools |
 | Memories | `participant_tags` per caller (our contact id, never the email) | Tavus learns softer context across calls; verified facts still come from the CRM |
@@ -160,7 +163,12 @@ are recreated only when their content changes). `npm run agent:check` prints the
   specialty field (clearer tool description, plus a server-side recovery).
 - **Evals:** `evals/cases.json` runs on the admin Evals page against the live PAL in Tavus's text-only chat mode,
   with real tools: right tools, right arguments, and what Anna must and must never say (no plan recommendation,
-  never repeating a Medicare number, Knowledge Base answers). Latest run: [`evals/REPORT.md`](evals/REPORT.md).
+  never repeating a Medicare number, Knowledge Base answers). Booking is a server tool Tavus calls directly, so
+  the runner reads it from our tool-call ledger. One case is the walkthrough demo end to end, as a San Francisco
+  caller. Latest run: [`evals/REPORT.md`](evals/REPORT.md). The evals caught real bugs: an active Tavus objective
+  is pushed every turn, so Anna asked "are you turning 65?" in nearly every reply (optional questions moved to
+  the prompt); the model dropped a doctor's first name (now a required field); and "today" after hours jumped to
+  next week's slots (now falls back to the soonest times).
 
 ## Production details
 
