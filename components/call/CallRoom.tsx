@@ -4,7 +4,6 @@ import { useDaily, useDailyEvent } from "@daily-co/daily-react";
 import { ArrowUp, Clock } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
-import { toast } from "sonner";
 import { CVIProvider } from "@/app/components/cvi/components/cvi-provider";
 import { PageHeader } from "@/components/app/PageHeader";
 import { Badge } from "@/components/ui/badge";
@@ -73,6 +72,7 @@ function LiveCall({ session, firstName }: { session: Session; firstName: string 
   const respondRef = useRef<(text: string) => void>(() => {});
   const sendNext = useCallback(() => {
     sendTimer.current = null;
+    if (busyRef.current) return; // a lookup started after her filler line; wait for her answer to it
     const s = scriptRef.current;
     if (!s || s.sentAt.length >= s.steps.length) return;
     const next = { ...s, sentAt: [...s.sentAt, Date.now()] };
@@ -82,7 +82,7 @@ function LiveCall({ session, firstName }: { session: Session; firstName: string 
   }, []);
   const onAnnaDone = useCallback(() => {
     if (!scriptRef.current || busyRef.current || sendTimer.current !== null) return;
-    sendTimer.current = window.setTimeout(sendNext, 1500);
+    sendTimer.current = window.setTimeout(sendNext, 3000);
   }, [sendNext]);
   // Guardrail and objective events: kept on the call's trace; a fired guardrail also shows in the chat.
   const onCompliance = useCallback(
@@ -226,8 +226,7 @@ function LiveCall({ session, firstName }: { session: Session; firstName: string 
       const b = body?.booking as BookingCard["data"] | null;
       if (b && `${b.bookingId}${b.when}` !== seenBooking.current) {
         seenBooking.current = `${b.bookingId}${b.when}`;
-        dispatch({ type: "tool_finished", name: "book_advisor_call", card: { kind: "booking", data: b } });
-        toast.success(`Booked with ${b.advisor}`, { description: b.when ?? undefined });
+        dispatch({ type: "tool_finished", name: "book_advisor_call", card: { kind: "booking", data: b } }); // opens the booking card
       }
     }, 3500);
     return () => clearInterval(t);

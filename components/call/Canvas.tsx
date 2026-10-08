@@ -36,9 +36,14 @@ export function Canvas({
   const inSection = (s: Section) => sectionItems(s, items);
   const steps = nextSteps(items);
 
-  // Bring a just-opened result into view inside its section.
+  // Bring a just-opened result into view inside its section. Scroll only the canvas: the
+  // browser's scrollIntoView also scrolls every ancestor, which shifted the whole call screen.
   useEffect(() => {
-    if (focused) document.getElementById(`item-${focused.key}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const el = focused && document.getElementById(`item-${focused.key}`);
+    const viewport = el?.closest<HTMLElement>("[data-slot=scroll-area-viewport]");
+    if (!el || !viewport) return;
+    const top = viewport.scrollTop + el.getBoundingClientRect().top - viewport.getBoundingClientRect().top - 16;
+    viewport.scrollTo({ top, behavior: "smooth" });
   }, [focused]);
 
   const navItem = (id: string, label: string, Icon: typeof LayoutGrid, done?: boolean, count?: number) => (

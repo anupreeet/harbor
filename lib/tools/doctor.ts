@@ -48,7 +48,7 @@ const displayName = (c: Clinician) =>
 
 export const lookupDoctor: ToolHandler = async (args, ctx) => {
   const lastName = args.last_name as string;
-  let firstName = args.first_name as string | undefined;
+  let firstName = (args.first_name as string | undefined) || undefined; // required in the schema, "" when not said
   let hint = args.specialty_hint as string | undefined;
   // Models sometimes put "Jasmin Patel" in specialty_hint (seen in a live trace): recover the first name.
   if (hint && hint.toLowerCase().includes(lastName.toLowerCase())) {

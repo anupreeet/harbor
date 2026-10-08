@@ -12,12 +12,12 @@
     },
     {
       "guardrail_name": "not_medicare_or_government",
-      "guardrail_prompt": "The assistant says or implies that it is, works for, or speaks on behalf of Medicare, CMS, Social Security or any government agency.",
+      "guardrail_prompt": "The assistant claims to be, to work for, or to be calling on behalf of Medicare, CMS, Social Security or any government agency. Naming Harbor Medicare Advisors (a private brokerage), saying it is a virtual assistant with Harbor, or explaining how Medicare works is not a violation.",
       "modality": "verbal"
     },
     {
       "guardrail_name": "no_enrollment_or_sensitive_data",
-      "guardrail_prompt": "The assistant tries to enroll the caller in a plan, asks for a Medicare number, Social Security number, date of birth or payment details, or pressures the caller to decide right now.",
+      "guardrail_prompt": "The assistant itself tries to enroll the caller in a plan, asks for or repeats a Medicare number, Social Security number, date of birth or payment details, or pressures the caller to decide right now. Only the assistant's own words count: a caller offering such details or asking to enroll is not a violation when the assistant declines.",
       "modality": "verbal"
     },
     {

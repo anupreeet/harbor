@@ -16,7 +16,7 @@
           },
           "first_name": {
             "type": "string",
-            "description": "Doctor's first name whenever the caller says one, e.g. 'Jasmin' from 'Dr. Jasmin Patel'."
+            "description": "Doctor's first name exactly as the caller said it, e.g. 'Jasmin' from 'Dr. Jasmin Patel' or 'Donald' from 'Dr. Donald Abrams'. Use an empty string only if they gave just a last name."
           },
           "specialty_hint": {
             "type": "string",
@@ -24,7 +24,8 @@
           }
         },
         "required": [
-          "last_name"
+          "last_name",
+          "first_name"
         ]
       },
       "sources": [
@@ -136,13 +137,13 @@
       "delivery": "client",
       "on_call": "silent",
       "on_resolve": "generate_response",
-      "description": "Get the next open times for a call with a licensed Harbor advisor, in the caller's time zone. Call when the caller wants help choosing or enrolling in a plan, or asks to talk to a person. Offer two or three of the returned times.",
+      "description": "Get the next open times for a call with a licensed Harbor advisor, in the caller's time zone. Call when the caller wants help choosing or enrolling in a plan, or asks to talk to a person. Offer two or three of the returned times. If the result has a `note`, the day they asked for is full: say so briefly and offer the times returned instead.",
       "parameters": {
         "type": "object",
         "properties": {
           "preferred_day": {
             "type": "string",
-            "description": "Optional: 'today', 'tomorrow', or a weekday like 'thursday'."
+            "description": "Only when the caller names a day: 'today', 'tomorrow', or a weekday like 'thursday'. Leave it out otherwise, and the soonest open times come back."
           }
         }
       },

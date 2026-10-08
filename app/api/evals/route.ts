@@ -5,31 +5,39 @@ import { createContact } from "@/lib/crm";
 import { newId, query } from "@/lib/db";
 import { createConversation, isConcurrencyLimit } from "@/lib/tavus/client";
 import { palId } from "@/lib/tavus/ids";
+import { resolveZip } from "@/lib/integrations/geo";
 import { trace } from "@/lib/tools/run";
 
-// Starts one eval case: a fresh synthetic caller in Chicago and a text-only Tavus conversation
-// (`chat: true`, no video) against the same PAL, greeting, context and knowledge base as a real
-// call. The Evals page joins its room and plays the case's turns. Admins only; billed by Tavus.
-export async function POST() {
+// Starts one eval case: a fresh synthetic caller (in Chicago unless the case gives a ZIP) and a
+// text-only Tavus conversation (`chat: true`, no video) against the same PAL, greeting, context
+// and knowledge base as a real call. The Evals page joins its room and plays the case's turns.
+// Admins only; billed by Tavus.
+export async function POST(request: Request) {
   const user = await currentUser();
   if (!user || !isAdmin(user.email)) return Response.json({ error: "Admins only." }, { status: 403 });
   const pal = palId();
   if (!pal || !process.env.TAVUS_API_KEY) return Response.json({ error: "Tavus isn't set up on this server." }, { status: 503 });
 
+  const { zip = "60614" } = (await request.json().catch(() => ({}))) as { zip?: string };
+  const place = await resolveZip(zip).catch(() => null);
+  if (!place) return Response.json({ error: `Couldn't resolve ZIP ${zip}.` }, { status: 400 });
   const caller = await createContact({
     email: `eval+${newId()}@harbor.test`,
     passwordHash: "-", // can't sign in
     firstName: "Bob",
-    zip: "60614",
-    city: "Chicago",
-    state: "IL",
-    countyName: "Cook County",
-    countyFips: "17031",
+    zip,
+    city: place.city,
+    state: place.state,
+    countyName: place.countyName,
+    countyFips: place.countyFips,
   });
   await query(`UPDATE contacts SET is_test = true WHERE id = $1`, [caller!.id]);
 
   const greeting = buildGreeting({ firstName: "Bob", returning: false });
-  const context = buildContext({ now: new Date(), timeZone: "America/Chicago", firstName: "Bob", city: "Chicago", state: "IL", countyName: "Cook County", topic: null, file: null });
+  const context = buildContext({
+    now: new Date(), timeZone: place.timeZone, firstName: "Bob",
+    city: place.city, state: place.state, countyName: place.countyName, topic: null, file: null,
+  });
   try {
     const created = await createConversation({
       pal_id: pal,

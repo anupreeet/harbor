@@ -37,7 +37,7 @@ describe("check_drug", () => {
 describe("lookup_doctor", () => {
   it("asks for a first name when a common surname has many matches", async () => {
     const { conversationId } = await seedConversation();
-    const out = await call(conversationId, "lookup_doctor", { last_name: "Patel" });
+    const out = await call(conversationId, "lookup_doctor", { last_name: "Patel", first_name: "" }); // no first name said
     expect(out.result.speak.status).toBe("too_many");
   });
 

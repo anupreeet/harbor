@@ -31,4 +31,12 @@ describe("calendar", () => {
     const slots = nextSlots({ timeZone: TZ, taken: new Set(), now: NOW, preferredDay: "friday" });
     expect(slots.every((s) => s.label.startsWith("Friday"))).toBe(true);
   });
+
+  it("treats 'today' as today's date, not the same weekday next week", () => {
+    const late = new Date("2026-10-07T21:30:00.000Z"); // Wed 16:30 in Chicago: nothing left today
+    expect(nextSlots({ timeZone: TZ, taken: new Set(), now: late, preferredDay: "today" })).toEqual([]);
+    const slots = nextSlots({ timeZone: TZ, taken: new Set(), now: NOW, preferredDay: "today" });
+    expect(slots.length).toBeGreaterThan(0);
+    expect(slots.every((s) => s.label.includes("October 7"))).toBe(true);
+  });
 });

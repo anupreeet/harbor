@@ -1,5 +1,5 @@
 {
-  "$comment": "Tavus Objectives: a branching checklist of the CMS pre-enrollment topics, condensed for a four-minute call. Tavus's evaluator marks each complete as the call goes, which keeps Anna moving through them in order.",
+  "$comment": "Tavus Objectives: the milestones a call must reach, in order. Tavus keeps steering the PAL toward whichever objective is active, so only milestones the caller is already driving belong here; questions they might skip (their situation, their priorities, the Medicaid note) live in the system prompt, where they're asked once and dropped. Earlier versions had them here and Anna repeated them every turn (seen in the evals).",
   "objectives": [
     {
       "objective_name": "confirm_transcription_consent",
@@ -8,46 +8,15 @@
       "output_variables": [
         "consent_given"
       ],
-      "next_required_objective": "understand_situation"
-    },
-    {
-      "objective_name": "understand_situation",
-      "objective_prompt": "Learn whether the caller is turning 65 soon or already has Medicare, and what coverage they have today (employer coverage, Medicaid, an existing Medicare plan, or none).",
-      "confirmation_mode": "auto",
-      "output_variables": [
-        "medicare_status",
-        "current_coverage"
-      ],
-      "next_conditional_objectives": {
-        "note_dual_eligibility": "The caller has Medicaid, Extra Help, or says they have limited income.",
-        "doctors_and_medications": "Any other situation."
-      }
-    },
-    {
-      "objective_name": "note_dual_eligibility",
-      "objective_prompt": "Let the caller know they may qualify for extra help or special plans, and that the licensed advisor will check this with them. Then continue.",
-      "confirmation_mode": "auto",
-      "output_variables": [
-        "dual_eligibility_mentioned"
-      ],
       "next_required_objective": "doctors_and_medications"
     },
     {
       "objective_name": "doctors_and_medications",
-      "objective_prompt": "Learn which doctors the caller wants to keep and which medications they take, checking each one with the lookup tools.",
+      "objective_prompt": "Learn which doctors the caller wants to keep and which medications they take, checking each one with the lookup tools. This is complete once they've named them, said they have none, or moved on to plans or booking.",
       "confirmation_mode": "auto",
       "output_variables": [
         "doctors",
         "medications"
-      ],
-      "next_required_objective": "priorities"
-    },
-    {
-      "objective_name": "priorities",
-      "objective_prompt": "Learn what matters most to the caller when choosing a plan (monthly cost, keeping a doctor, drug costs, travel, extras like dental or vision).",
-      "confirmation_mode": "auto",
-      "output_variables": [
-        "priorities"
       ],
       "next_required_objective": "agree_next_step"
     },

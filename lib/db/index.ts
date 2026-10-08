@@ -21,9 +21,12 @@ async function createDriver(): Promise<Driver> {
         (await sql.query(text, params)) as T[],
     };
   }
+  // On Vercel each function instance has its own /tmp, so an embedded database there loses
+  // accounts between requests (sign up, then "Start call" lands on another instance and
+  // you're signed out). Fail loudly instead.
+  if (process.env.VERCEL) throw new Error("DATABASE_URL is not set: add Neon to the Vercel project");
   const { PGlite } = await import("@electric-sql/pglite");
-  const dataDir =
-    process.env.PGLITE_DIR ?? (process.env.VERCEL ? "/tmp/harbor-pglite" : ".data/pglite");
+  const dataDir = process.env.PGLITE_DIR ?? ".data/pglite";
   if (!dataDir.startsWith("memory://")) {
     const { mkdirSync } = await import("node:fs");
     mkdirSync(dataDir, { recursive: true });

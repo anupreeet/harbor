@@ -8,7 +8,7 @@ export type TurnSpec = {
   say_any?: string[];
   say_none?: string[];
 };
-export type EvalCase = { name: string; turns: TurnSpec[] };
+export type EvalCase = { name: string; zip?: string; turns: TurnSpec[] }; // zip: where the synthetic caller lives (default Chicago)
 export type ToolCallSeen = { name: string; args: Record<string, unknown> };
 // `flags`: guardrail/objective events Tavus sent during the turn.
 export type TurnObserved = { reply: string; tools: ToolCallSeen[]; ms: number; flags?: string[] };

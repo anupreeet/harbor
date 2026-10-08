@@ -81,6 +81,7 @@ export function nextSlots(opts: {
       if (perDay.length === (wanted ? count : 2)) break;
     }
     out.push(...perDay.slice(0, count - out.length));
+    if (wanted) break; // "today", "tomorrow" or "friday" means that one date, not the same weekday next week
   }
   return out;
 }

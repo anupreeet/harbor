@@ -23,7 +23,11 @@ export function parseArguments(raw: unknown, schema: JsonSchema): Record<string,
   const out: Record<string, unknown> = {};
   for (const [key, prop] of Object.entries(schema.properties)) {
     const value = input[key];
-    if (value === undefined || value === null || value === "") continue;
+    if (value === undefined || value === null) continue;
+    if (value === "") {
+      if (schema.required?.includes(key)) out[key] = ""; // a required field sent empty means "not said"
+      continue;
+    }
     if (prop.type === "string") {
       if (typeof value !== "string") throw new ToolArgumentError(`${key} must be a string`);
       const v = value.trim();

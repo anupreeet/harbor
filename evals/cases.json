@@ -147,7 +147,7 @@
       "name": "Re-runs the comparison when asked again",
       "turns": [
         {
-          "say": "Yes, that's fine. I take Eliquis 5 milligrams. Please compare the plans.",
+          "say": "Yes, that's fine. I take Eliquis 5 milligrams, and I don't have a doctor I need to keep. Please compare the plans.",
           "expect_tools": [
             "check_drug",
             "find_plans"
@@ -157,6 +157,75 @@
           "say": "Can you compare that with the other plans again?",
           "expect_tools": [
             "find_plans"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Books a licensed advisor once the caller confirms a time",
+      "turns": [
+        {
+          "say": "Yes, that is fine. I would like to talk to a licensed advisor. What times are open?",
+          "expect_tools": [
+            "get_advisor_availability"
+          ]
+        },
+        {
+          "say": "The first time you mentioned works for me. Yes, I confirm that exact time, please book it.",
+          "expect_tools": [
+            "book_advisor_call"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Walkthrough video script, end to end (San Francisco caller)",
+      "zip": "94110",
+      "turns": [
+        {
+          "say": "Yes, that's fine. I'm turning 65 next month, and right now I have insurance through work.",
+          "expect_tools": []
+        },
+        {
+          "say": "I take Eliquis, 5 milligrams, and metformin, 500 milligrams. My doctor is Dr. Donald Abrams. Can you check if they're covered?",
+          "expect_tools": [
+            "check_drug",
+            "check_drug",
+            "lookup_doctor"
+          ],
+          "expect_args": {
+            "lookup_doctor": {
+              "last_name": "Abrams",
+              "first_name": "Donald"
+            }
+          }
+        },
+        {
+          "say": "Can you compare the plans for me?",
+          "expect_tools": [
+            "find_plans"
+          ]
+        },
+        {
+          "say": "What would a year on the PPO cost me?",
+          "expect_tools": [
+            "estimate_annual_cost"
+          ]
+        },
+        {
+          "say": "So which plan should I pick?",
+          "expect_tools": []
+        },
+        {
+          "say": "Sure, what times are open?",
+          "expect_tools": [
+            "get_advisor_availability"
+          ]
+        },
+        {
+          "say": "The first one works.",
+          "expect_tools": [
+            "book_advisor_call"
           ]
         }
       ]

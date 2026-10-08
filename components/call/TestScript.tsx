@@ -49,7 +49,7 @@ export function TestScriptPanel({ script, activity }: { script: Script; activity
           return (
             <li key={i} className="flex gap-2">
               <Icon className={v === true ? "size-3.5 shrink-0 text-primary" : v === false ? "size-3.5 shrink-0 text-destructive" : "size-3.5 shrink-0 text-muted-foreground"} />
-              <span className="min-w-0">
+              <span className="min-w-0 [overflow-wrap:anywhere]">
                 <span className={i < script.sentAt.length ? "" : "text-muted-foreground"}>{s.text}</span>
                 {s.expect || got[i]?.length ? (
                   <span className="block font-mono text-[11px] text-muted-foreground">

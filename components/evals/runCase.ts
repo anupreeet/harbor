@@ -10,12 +10,13 @@ import { scoreTurn, type CaseResult, type EvalCase, type ToolCallSeen, type Turn
 
 type TavusEvent = { event_type?: string; inference_id?: string; properties?: Record<string, unknown> };
 
-const SETTLE_MS = 4000; // a turn is over this long after the last reply or tool result
+const SETTLE_MS = 6000; // a turn is over this long after the last reply or tool result (a slow lookup can make her speak again after 4 s)
 const TURN_TIMEOUT_MS = 75_000;
 const READY_TIMEOUT_MS = 90_000;
 
 class Room {
   readonly call: DailyCall;
+  readonly serverCallsSeen = new Set<string>();
   private queue: TavusEvent[] = [];
   private wakers: (() => void)[] = [];
   annaHere = false;
@@ -105,12 +106,23 @@ async function collectTurn(room: Room): Promise<TurnObserved> {
       }
     }
   }
+  tools.push(...(await serverToolCalls(room)));
   return { reply: [...replies.values()].join(" ").trim(), tools, flags, ms: Math.round(performance.now() - started) };
+}
+
+// Server-delivered tools (booking, preferences) go from Tavus straight to our server, so they
+// never show up as app messages; read the ones made since the last turn from the ledger.
+async function serverToolCalls(room: Room): Promise<ToolCallSeen[]> {
+  const res = await fetch(`/api/evals/${room.conversationId}/tools`).catch(() => null);
+  const body: { calls?: { tool_call_id: string; name: string; args: unknown }[] } = res?.ok ? await res.json() : {};
+  const fresh = (body.calls ?? []).filter((c) => TOOL_DELIVERY[c.name] === "server" && !room.serverCallsSeen.has(c.tool_call_id));
+  fresh.forEach((c) => room.serverCallsSeen.add(c.tool_call_id));
+  return fresh.map((c) => ({ name: c.name, args: parseArgs(c.args) }));
 }
 
 export async function runCase(c: EvalCase, onProgress: (r: CaseResult) => void): Promise<CaseResult> {
   const result: CaseResult = { name: c.name, turns: [] };
-  const res = await fetch("/api/evals", { method: "POST" });
+  const res = await fetch("/api/evals", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ zip: c.zip }) });
   const body = await res.json().catch(() => ({}));
   if (!res.ok) return { ...result, error: body.error ?? `HTTP ${res.status}` };
 

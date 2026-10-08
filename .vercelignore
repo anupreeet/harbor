@@ -1,0 +1,7 @@
+# Local-only files that must never be uploaded by `vercel deploy`
+.data
+.env*
+!.env.example
+test-results
+playwright-report
+agent/.tavus-ids.json

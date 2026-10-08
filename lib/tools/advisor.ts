@@ -10,14 +10,20 @@ async function takenSlots(): Promise<Set<string>> {
 }
 
 export const getAdvisorAvailability: ToolHandler = async (args, ctx) => {
-  const slots = nextSlots({
-    timeZone: ctx.contact.timeZone,
-    taken: await takenSlots(),
-    preferredDay: args.preferred_day as string | undefined,
-  });
+  const day = args.preferred_day as string | undefined;
+  const opts = { timeZone: ctx.contact.timeZone, taken: await takenSlots() };
+  let slots = nextSlots({ ...opts, preferredDay: day });
+  // That day is full (or "today" after hours): offer the soonest times rather than nothing,
+  // so "what times are open?" always gets an answer the caller can pick from.
+  const fellBack = slots.length === 0 && !!day;
+  if (fellBack) slots = nextSlots(opts);
   if (slots.length === 0) return { speak: { status: "none_that_day", ask: "Offer a different day." } };
   return {
-    speak: { status: "available", options: slots.map((s) => ({ slot_id: s.slotId, time: s.label, advisor: s.advisor })) },
+    speak: {
+      status: "available",
+      ...(fellBack ? { note: `Nothing is open ${day}; these are the soonest times.` } : {}),
+      options: slots.map((s) => ({ slot_id: s.slotId, time: s.label, advisor: s.advisor })),
+    },
     card: { kind: "availability", data: slots },
   };
 };
