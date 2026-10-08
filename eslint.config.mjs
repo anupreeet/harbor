@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored @tavus/cvi-ui components (installed by its CLI); wrapped, not edited.
+    "app/components/cvi/**",
   ]),
 ]);
 
