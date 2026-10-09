@@ -1,0 +1,39 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/rxcui/190283/related.json?tty=IN+BN",
+ "status": 200,
+ "body": {
+  "relatedGroup": {
+   "rxcui": null,
+   "conceptGroup": [
+    {
+     "tty": "BN",
+     "conceptProperties": [
+      {
+       "rxcui": "190283",
+       "name": "Flomax",
+       "synonym": "",
+       "tty": "BN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      }
+     ]
+    },
+    {
+     "tty": "IN",
+     "conceptProperties": [
+      {
+       "rxcui": "77492",
+       "name": "tamsulosin",
+       "synonym": "",
+       "tty": "IN",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

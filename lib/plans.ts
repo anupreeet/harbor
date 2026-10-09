@@ -59,7 +59,32 @@ export async function coverageFor(ingredientRxcuis: string[]): Promise<Map<strin
     list.push({ planId: r.plan_id, tier: r.tier, monthlyCopay: r.monthly_copay_cents / 100, priorAuth: r.prior_auth });
     byRxcui.set(r.ingredient_rxcui, list);
   }
+
+  // Any real drug gets an answer, like any real doctor. Common ones are hand-set in the formulary;
+  // any other ingredient gets a demo tier fixed per drug, priced at each plan's own copay for that
+  // tier, and a few plans leave it off. Demo data, never a claim about a real plan's formulary.
+  const unlisted = [...new Set(ingredientRxcuis.filter((r) => !byRxcui.has(r)))];
+  if (unlisted.length) {
+    const tierCopays = await query<{ plan_id: string; tier: number; copay: number | string }>(
+      `SELECT plan_id, tier, MIN(monthly_copay_cents) AS copay FROM formulary GROUP BY plan_id, tier`,
+    );
+    for (const rxcui of unlisted) {
+      const tier = demoTier(rxcui);
+      byRxcui.set(
+        rxcui,
+        tierCopays
+          .filter((t) => t.tier === tier && fnv1a(`${rxcui}:${t.plan_id}`) % 100 >= 10)
+          .map((t) => ({ planId: t.plan_id, tier, monthlyCopay: Number(t.copay) / 100, priorAuth: tier === 4 })),
+      );
+    }
+  }
   return byRxcui;
+}
+
+// Mostly generics (tier 1-2), some preferred brands (3), few specialty (4).
+export function demoTier(rxcui: string): 1 | 2 | 3 | 4 {
+  const h = fnv1a(rxcui) % 100;
+  return h < 45 ? 1 : h < 70 ? 2 : h < 92 ? 3 : 4;
 }
 
 // Simulated network membership (demo data — never a claim about a real doctor's contracts).

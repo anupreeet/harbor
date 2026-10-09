@@ -1,0 +1,50 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Flomax&maxEntries=5",
+ "status": 200,
+ "body": {
+  "approximateGroup": {
+   "inputTerm": null,
+   "candidate": [
+    {
+     "rxcui": "190283",
+     "rxaui": "1077935",
+     "score": "14.837921142578125",
+     "rank": "1",
+     "source": "MMSL"
+    },
+    {
+     "rxcui": "190283",
+     "rxaui": "1077936",
+     "score": "14.837921142578125",
+     "rank": "1",
+     "name": "Flomax",
+     "source": "RXNORM"
+    },
+    {
+     "rxcui": "1169778",
+     "rxaui": "3836477",
+     "score": "14.214442072391511",
+     "rank": "3",
+     "name": "Flomax Pill",
+     "source": "RXNORM"
+    },
+    {
+     "rxcui": "1169777",
+     "rxaui": "3836476",
+     "score": "13.681367187573912",
+     "rank": "4",
+     "name": "Flomax Oral Product",
+     "source": "RXNORM"
+    },
+    {
+     "rxcui": "366475",
+     "rxaui": "2060674",
+     "score": "13.226879313294413",
+     "rank": "5",
+     "name": "tamsulosin Oral Capsule [Flomax]",
+     "source": "RXNORM"
+    }
+   ]
+  }
+ }
+}

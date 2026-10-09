@@ -1,0 +1,25 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/rxcui/190283/related.json?tty=SBD",
+ "status": 200,
+ "body": {
+  "relatedGroup": {
+   "rxcui": null,
+   "conceptGroup": [
+    {
+     "tty": "SBD",
+     "conceptProperties": [
+      {
+       "rxcui": "863671",
+       "name": "tamsulosin hydrochloride 0.4 MG Oral Capsule [Flomax]",
+       "synonym": "Flomax 0.4 MG Oral Capsule",
+       "tty": "SBD",
+       "language": "ENG",
+       "suppress": "N",
+       "umlscui": ""
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

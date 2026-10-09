@@ -27,6 +27,20 @@ describe("check_drug", () => {
     expect(speak.coverage.find((c) => c.plan === "Larkspur Health Advantage HMO")!.covered).toBe(false);
   });
 
+  it("prices any real drug, not only the hand-set formulary, the same way every time", async () => {
+    const { conversationId } = await seedConversation();
+    const check = async () =>
+      (await call(conversationId, "check_drug", { drug_name: "Flomax", strength: "0.4 mg" })).result.speak as {
+        status: string; generic_name: string; coverage: { covered: boolean; tier?: number; monthly_copay?: number }[];
+      };
+    const first = await check();
+    expect(first.status).toBe("found");
+    expect(first.generic_name).toBe("tamsulosin");
+    expect(first.coverage.filter((c) => c.covered).length).toBeGreaterThan(0);
+    for (const c of first.coverage.filter((c) => c.covered)) expect(c.monthly_copay).toEqual(expect.any(Number));
+    expect((await check()).coverage).toEqual(first.coverage);
+  });
+
   it("asks the caller to read the bottle when nothing matches", async () => {
     const { conversationId } = await seedConversation();
     const out = await call(conversationId, "check_drug", { drug_name: "blood thinner" });

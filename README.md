@@ -24,10 +24,11 @@ the same lookup Anna uses: one match, and Medicare says they accept assignment.
 
 The doctors are real; which plans include them is demo data (the same doctor always gets the same answer).
 
-**Drugs with demo prices** (any real drug is recognised, but only these have prices on the demo plans):
-Eliquis (apixaban), Xarelto (rivaroxaban), Lantus (insulin glargine), Januvia (sitagliptin), Jardiance
-(empagliflozin), Ozempic (semaglutide), metformin, Lipitor (atorvastatin), Crestor (rosuvastatin),
-lisinopril, losartan, amlodipine, Synthroid (levothyroxine), Plavix (clopidogrel), omeprazole, gabapentin.
+**Any real drug works too**, by brand or generic name (matched in the national drug database, RxNorm). Its
+coverage works like the doctors': the drug is real, its tier and copay on each plan are demo data, and the
+same drug always gets the same answer. These common ones have hand-set tiers: Eliquis, Xarelto, Lantus,
+Januvia, Jardiance, Ozempic, metformin, Lipitor, Crestor, lisinopril, losartan, amlodipine, Synthroid,
+Plavix, omeprazole, gabapentin.
 
 A full call to try: *"I take Eliquis 5 milligrams and metformin 500. My doctor is Dr. Donald Abrams."* →
 *"Can you compare the plans?"* → *"Which plan should I pick?"* → *"Sure, what times are open?"*

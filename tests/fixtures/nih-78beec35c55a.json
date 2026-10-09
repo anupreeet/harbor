@@ -1,0 +1,15 @@
+{
+ "url": "https://rxnav.nlm.nih.gov/REST/rxcui/190283/properties.json",
+ "status": 200,
+ "body": {
+  "properties": {
+   "rxcui": "190283",
+   "name": "Flomax",
+   "synonym": "",
+   "tty": "BN",
+   "language": "ENG",
+   "suppress": "N",
+   "umlscui": ""
+  }
+ }
+}
