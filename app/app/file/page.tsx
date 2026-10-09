@@ -1,4 +1,4 @@
-import { CalendarDays, Check, Heart, Pill, Stethoscope, Video } from "lucide-react";
+import { CalendarDays, Check, Heart, Pill, Stethoscope, Video, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/app/PageHeader";
@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { requireUser } from "@/lib/auth";
 import { loadFile } from "@/lib/crm";
+import { removeFromFile } from "./actions";
 
 export const metadata: Metadata = { title: "Your coverage" };
 
@@ -45,9 +46,12 @@ export default async function FilePage() {
           ) : (
             <>
               {file.booking ? (
-                <div className="perforated rounded-xl bg-primary px-6 py-5 text-primary-foreground">
-                  <p className="flex items-center gap-2 text-sm opacity-85"><CalendarDays className="size-4" /> With {file.booking.advisor}, licensed Harbor advisor</p>
-                  <p className="mt-1 text-lg font-semibold">{file.booking.when}</p>
+                <div className="perforated flex items-start justify-between gap-4 rounded-xl bg-primary px-6 py-5 text-primary-foreground">
+                  <div>
+                    <p className="flex items-center gap-2 text-sm opacity-85"><CalendarDays className="size-4" /> With {file.booking.advisor}, licensed Harbor advisor</p>
+                    <p className="mt-1 text-lg font-semibold">{file.booking.when}</p>
+                  </div>
+                  <Remove what="booking" itemKey={file.booking.id} name={`your advisor call on ${file.booking.when}`} label="Cancel call" />
                 </div>
               ) : null}
 
@@ -61,10 +65,13 @@ export default async function FilePage() {
                     {file.doctors.length ? (
                       <ul className="divide-y">
                         {file.doctors.map((d) => (
-                          <li key={d.npi} className="py-2.5 first:pt-0 last:pb-0">
-                            <p className="font-medium">{d.name}</p>
-                            <p className="text-xs text-muted-foreground">{[d.specialty, d.practiceName, d.city].filter(Boolean).join(" · ")}</p>
-                            {d.acceptsMedicare ? <Badge variant="secondary" className="mt-1.5"><Check /> Accepts Medicare</Badge> : null}
+                          <li key={d.npi} className="flex items-start justify-between gap-3 py-2.5 first:pt-0 last:pb-0">
+                            <div>
+                              <p className="font-medium">{d.name}</p>
+                              <p className="text-xs text-muted-foreground">{[d.specialty, d.practiceName, d.city].filter(Boolean).join(" · ")}</p>
+                              {d.acceptsMedicare ? <Badge variant="secondary" className="mt-1.5"><Check /> Accepts Medicare</Badge> : null}
+                            </div>
+                            <Remove what="doctor" itemKey={d.npi} name={d.name} />
                           </li>
                         ))}
                       </ul>
@@ -83,12 +90,15 @@ export default async function FilePage() {
                     {file.drugs.length ? (
                       <ul className="divide-y">
                         {file.drugs.map((d) => (
-                          <li key={d.key} className="py-2.5 first:pt-0 last:pb-0">
-                            <p className="font-medium">
-                              {d.name}
-                              {d.strength ? <span className="font-normal text-muted-foreground"> {d.strength}</span> : null}
-                            </p>
-                            <p className="text-xs text-muted-foreground">{d.ingredients.map((i) => i.name).join(" / ")}</p>
+                          <li key={d.key} className="flex items-start justify-between gap-3 py-2.5 first:pt-0 last:pb-0">
+                            <div>
+                              <p className="font-medium">
+                                {d.name}
+                                {d.strength ? <span className="font-normal text-muted-foreground"> {d.strength}</span> : null}
+                              </p>
+                              <p className="text-xs text-muted-foreground">{d.ingredients.map((i) => i.name).join(" / ")}</p>
+                            </div>
+                            <Remove what="drug" itemKey={d.key} name={d.name} />
                           </li>
                         ))}
                       </ul>
@@ -105,8 +115,13 @@ export default async function FilePage() {
                     <CardTitle className="flex items-center gap-2"><Heart className="size-4 text-primary" /> Anna remembers</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="list-inside list-disc text-sm text-muted-foreground">
-                      {file.preferences.map((p) => <li key={p}>{p}</li>)}
+                    <ul className="divide-y text-sm text-muted-foreground">
+                      {file.preferences.map((p) => (
+                        <li key={p} className="flex items-center justify-between gap-3 py-1.5 first:pt-0 last:pb-0">
+                          {p}
+                          <Remove what="preference" itemKey={p} name={p} />
+                        </li>
+                      ))}
                     </ul>
                   </CardContent>
                 </Card>
@@ -118,5 +133,23 @@ export default async function FilePage() {
         </div>
       </div>
     </>
+  );
+}
+
+// A plain form: works before hydration, and the action re-checks who's signed in.
+function Remove({ what, itemKey, name, label }: { what: string; itemKey: string; name: string; label?: string }) {
+  return (
+    <form action={removeFromFile} className="shrink-0">
+      <input type="hidden" name="what" value={what} />
+      <input type="hidden" name="key" value={itemKey} />
+      <input type="hidden" name="name" value={name} />
+      {label ? (
+        <Button type="submit" size="sm" variant="secondary" aria-label={`Cancel ${name}`}>{label}</Button>
+      ) : (
+        <Button type="submit" size="icon-sm" variant="ghost" aria-label={`Remove ${name}`} title="Remove from your file">
+          <X />
+        </Button>
+      )}
+    </form>
   );
 }

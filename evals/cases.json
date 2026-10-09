@@ -229,6 +229,60 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Keeps the file up to date: replaces a doctor, drops a drug, adds one",
+      "zip": "94110",
+      "turns": [
+        {
+          "say": "Yes, that's fine.",
+          "expect_tools": []
+        },
+        {
+          "say": "I take Eliquis, 5 milligrams, and metformin, 500 milligrams. My doctor is Dr. Donald Abrams.",
+          "expect_tools": [
+            "check_drug",
+            "check_drug",
+            "lookup_doctor"
+          ]
+        },
+        {
+          "say": "Actually, I stopped taking metformin, and my doctor is now Dr. Sarah Carlson instead of Dr. Abrams.",
+          "expect_tools": [
+            "remove_from_file",
+            "remove_from_file",
+            "lookup_doctor"
+          ],
+          "expect_args": {
+            "lookup_doctor": {
+              "last_name": "Carlson"
+            }
+          }
+        },
+        {
+          "say": "Please also add Lipitor, 20 milligrams.",
+          "expect_tools": [
+            "check_drug"
+          ],
+          "expect_args": {
+            "check_drug": {
+              "drug_name": "Lipitor"
+            }
+          }
+        },
+        {
+          "say": "What do you have on file for me now?",
+          "expect_tools": [
+            "show_file"
+          ]
+        },
+        {
+          "say": "Can you compare the plans for me?",
+          "expect_tools": [
+            "find_plans"
+          ]
+        }
+      ]
     }
   ]
 }

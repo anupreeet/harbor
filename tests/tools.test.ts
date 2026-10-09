@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { query } from "@/lib/db";
 import { nextSlots } from "@/lib/calendar";
+import { recordFact } from "@/lib/crm";
 import { runTool } from "@/lib/tools/run";
 import { seedConversation } from "./helpers/db";
 
@@ -159,5 +160,55 @@ describe("tools fired in parallel (seen in a live trace)", () => {
     ]);
     const speak = plans.result.speak as { checked: { drugs: string[] } };
     expect(speak.checked.drugs).toEqual(["Xarelto"]);
+  });
+});
+
+describe("keeping the caller's file up to date (remove_from_file, show_file)", () => {
+  const doctor = (npi: string, name: string) => ({ npi, name, specialty: "Family Medicine", city: "Chicago", practiceName: null, acceptsMedicare: true });
+
+  it("replaces a doctor: the old one leaves the file and the next comparison", async () => {
+    const { conversationId, contact } = await seedConversation();
+    await recordFact(contact.id, "doctor", "1679530018", doctor("1679530018", "Dr. Donald Abrams"), conversationId);
+    await recordFact(contact.id, "doctor", "1669455382", doctor("1669455382", "Dr. Sarah Carlson"), conversationId);
+    const out = await call(conversationId, "remove_from_file", { what: "doctor", which: "Dr. Abrams" });
+    expect(out.result.speak).toMatchObject({ status: "removed", removed: ["Dr. Donald Abrams"], still_on_file: ["Dr. Sarah Carlson"] });
+    // The screen drops the old doctor's card and the comparison made with it.
+    expect(out.result.card).toMatchObject({ kind: "removed", data: { keys: expect.arrayContaining(["doctor:1679530018", "plans", "cost"]) } });
+    const plans = await call(conversationId, "find_plans", {});
+    expect((plans.result.card as { data: { doctors: string[] } }).data.doctors).toEqual(["Dr. Sarah Carlson"]);
+  });
+
+  it("removes a stopped medication by brand or generic name, or all of them", async () => {
+    const { conversationId } = await seedConversation();
+    await call(conversationId, "check_drug", { drug_name: "eliquiss", strength: "5 mg" });
+    await call(conversationId, "check_drug", { drug_name: "metformin" });
+    await call(conversationId, "check_drug", { drug_name: "xarelto" });
+    expect((await call(conversationId, "remove_from_file", { what: "drug", which: "apixaban 5 mg" })).result.speak).toMatchObject({ status: "removed", removed: ["Eliquis"] });
+    const file = (await call(conversationId, "show_file", {})).result.speak as { medications: string[] };
+    expect(file.medications).toHaveLength(2);
+    expect((await call(conversationId, "remove_from_file", { what: "drug", which: "all" })).result.speak).toMatchObject({ status: "removed" });
+    expect((await call(conversationId, "show_file", {})).result.speak).toMatchObject({ medications: [] });
+  });
+
+  it("says what is on file when the name doesn't match, and asks when several do", async () => {
+    const { conversationId, contact } = await seedConversation();
+    await recordFact(contact.id, "doctor", "1", doctor("1", "Dr. Frank Chen"), conversationId);
+    await recordFact(contact.id, "doctor", "2", doctor("2", "Dr. Aaron Chen"), conversationId);
+    expect((await call(conversationId, "remove_from_file", { what: "doctor", which: "Dr. Patel" })).result.speak)
+      .toEqual({ status: "not_on_file", on_file: ["Dr. Frank Chen", "Dr. Aaron Chen"] });
+    expect((await call(conversationId, "remove_from_file", { what: "doctor", which: "Dr. Chen" })).result.speak)
+      .toEqual({ status: "ask_which", options: ["Dr. Frank Chen", "Dr. Aaron Chen"] });
+  });
+
+  it("cancels the advisor call and frees the slot", async () => {
+    const { conversationId, contact } = await seedConversation();
+    const booked = await query<{ slot_start: string | Date }>(`SELECT slot_start FROM bookings`);
+    const [slot] = nextSlots({ timeZone: "America/Chicago", taken: new Set(booked.map((b) => new Date(b.slot_start).toISOString())) });
+    expect((await call(conversationId, "book_advisor_call", { slot_id: slot.slotId }, "server")).result.speak).toMatchObject({ status: "booked" });
+    const out = await call(conversationId, "remove_from_file", { what: "booking", which: "appointment" });
+    expect(out.result.speak).toMatchObject({ status: "removed" });
+    expect(await query(`SELECT id FROM bookings WHERE contact_id = $1`, [contact.id])).toHaveLength(0);
+    expect(await query(`SELECT stage FROM deals WHERE contact_id = $1`, [contact.id])).toEqual([{ stage: "qualified" }]);
+    expect((await call(conversationId, "remove_from_file", { what: "booking", which: "appointment" })).result.speak).toEqual({ status: "nothing_on_file" });
   });
 });

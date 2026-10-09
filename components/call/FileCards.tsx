@@ -6,7 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { money } from "@/lib/format";
 import { PLAN_TYPES } from "./Basics";
-import type { Card as FileCardData, CostCard, DoctorCard, DoctorOptionsCard, DrugCard, PlanDetailsCard, PlansCard } from "@/lib/tools/cards";
+import type { Card as FileCardData, CostCard, DoctorCard, DoctorOptionsCard, DrugCard, OnFileCard, PlanDetailsCard, PlansCard } from "@/lib/tools/cards";
 
 // Each lookup becomes the real-world document it stands for: a directory listing, a
 // prescription label, a benefits summary, an appointment card. Every one names its source.
@@ -378,5 +378,45 @@ export function FileCard({ card, onAsk }: { card: FileCardData; onAsk?: (text: s
           <CardContent><span className="font-medium">Noted for next time:</span> {card.data.preference}</CardContent>
         </Card>
       );
+    case "on_file":
+      return <OnFile d={card.data} onAsk={onAsk} />;
+    case "removed":
+      return null; // never stored as an item; the call state drops what it names
   }
+}
+
+function OnFile({ d, onAsk }: { d: OnFileCard["data"]; onAsk?: (text: string, open?: string) => void }) {
+  const rows: { label: string; values: string[] }[] = [
+    { label: "Doctors", values: d.doctors.map((x) => `${x.name}${x.specialty ? `, ${x.specialty}` : ""}`) },
+    { label: "Medications", values: d.drugs.map((x) => `${x.name}${x.strength ? ` ${x.strength}` : ""}`) },
+    { label: "Licensed advisor call", values: d.booking ? [`${d.booking.when} with ${d.booking.advisor}`] : [] },
+    { label: "Noted for next time", values: d.preferences },
+  ];
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-lg">What&apos;s on your file</CardTitle>
+        <CardDescription>Everything Anna has checked with you. Tell her if something changed and she&apos;ll update it.</CardDescription>
+      </CardHeader>
+      <CardContent className="grid gap-4 sm:grid-cols-2">
+        {rows.map((r) => (
+          <div key={r.label}>
+            <p className="text-sm font-medium">{r.label}</p>
+            {r.values.length ? (
+              <ul className="mt-1 space-y-0.5 text-sm text-muted-foreground">
+                {r.values.map((v) => <li key={v}>{v}</li>)}
+              </ul>
+            ) : (
+              <p className="mt-1 text-sm text-muted-foreground">None yet</p>
+            )}
+          </div>
+        ))}
+      </CardContent>
+      {onAsk && (d.doctors.length || d.drugs.length) ? (
+        <CardFooter>
+          <Button variant="outline" onClick={() => onAsk("Compare the plans with what's on my file.", "plans")}>Compare plans with this</Button>
+        </CardFooter>
+      ) : null}
+    </Card>
+  );
 }

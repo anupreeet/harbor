@@ -63,6 +63,8 @@ export function pendingLabel(name: string, args: Record<string, unknown>): strin
     case "book_advisor_call": return "Booking your advisor call";
     case "remember_preference": return "Saving that for next time";
     case "show_plan_details": return `Opening ${args.plan_name ?? "that plan"}`;
+    case "remove_from_file": return `Removing ${args.which === "all" ? `all ${args.what}s` : (args.which ?? "that")} from your file`;
+    case "show_file": return "Opening what's on your file";
     default: return "Working on it";
   }
 }
@@ -83,6 +85,8 @@ export function summaryFor(card: Card): string {
     case "booking": return `Booked with ${card.data.advisor}: ${card.data.when}`;
     case "preference": return `Noted: ${card.data.preference}`;
     case "plan_details": return `Showing ${card.data.name}`;
+    case "removed": return `Removed ${card.data.names.join(", ")} from your file`;
+    case "on_file": return `On file: ${card.data.doctors.length} ${card.data.doctors.length === 1 ? "doctor" : "doctors"}, ${card.data.drugs.length} ${card.data.drugs.length === 1 ? "medication" : "medications"}`;
   }
 }
 
@@ -106,7 +110,7 @@ export function callReducer(state: CallState, action: CallAction): CallState {
       // Server-side tools finish without a tool_call_id on our side; match the latest open row by name.
       const open = [...state.activity].reverse().find((a) => !a.done && (action.toolCallId ? a.id === action.toolCallId : a.name === action.name));
       const summary = action.card ? summaryFor(action.card) : action.failed ? "Couldn't check that just now" : undefined;
-      const itemKey = action.card ? keyFor(action.card) : undefined;
+      const itemKey = action.card && action.card.kind !== "removed" ? keyFor(action.card) : undefined;
       const finished = { done: true, summary, ms: action.ms, itemKey, failed: action.failed };
       const activity = open
         ? state.activity.map((a) => (a === open ? { ...a, ...finished } : a))
@@ -114,6 +118,11 @@ export function callReducer(state: CallState, action: CallAction): CallState {
           ? [...state.activity, { id: `${action.name}-${Date.now()}`, name: action.name, label: summary!, args: {}, at: Date.now(), ...finished }]
           : state.activity;
       if (!action.card) return { ...state, activity };
+      // Something left the file: drop its card and anything computed from the old file.
+      if (action.card.kind === "removed") {
+        const gone = new Set(action.card.data.keys);
+        return { ...state, activity, items: state.items.filter((i) => !gone.has(i.key) && !gone.has(i.kind)) };
+      }
 
       const key = keyFor(action.card);
       const item: FileItem = { ...action.card, key, tool: action.name, at: Date.now() };

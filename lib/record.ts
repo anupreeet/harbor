@@ -42,7 +42,13 @@ export async function loadRecord(conversationId: string, contactId: string | nul
   const file = new Map<string, Card>();
   for (const c of calls) {
     const card = c.result?.card;
-    if (card && card.kind !== "doctor_options" && card.kind !== "availability") file.set(keyFor(card), card);
+    if (!card || card.kind === "doctor_options" || card.kind === "availability" || card.kind === "on_file") continue;
+    if (card.kind === "removed") {
+      // Taken off the file during the call: drop it, and what was computed with it.
+      for (const [key, kept] of file) if (card.data.keys.includes(key) || card.data.keys.includes(kept.kind)) file.delete(key);
+      continue;
+    }
+    file.set(keyFor(card), card);
   }
   const cards = [...file.values()].sort((a, b) => ORDER.indexOf(a.kind) - ORDER.indexOf(b.kind));
 

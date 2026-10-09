@@ -195,6 +195,54 @@
       "sources": [
         "Harbor CRM (Postgres)"
       ]
+    },
+    {
+      "name": "remove_from_file",
+      "delivery": "client",
+      "on_call": "silent",
+      "on_resolve": "generate_response",
+      "description": "Take something off the caller's file when it changed or was wrong: a doctor they no longer see ('my new doctor is Dr. Carlson' means remove the old one), a medication they stopped, their advisor appointment ('cancel my appointment'), or a saved preference. Plan comparisons use everything on the file, so call this before comparing when something changed. Don't ask permission when they've said it changed. Results: removed (say what you took off; if they named a replacement, look it up next; if plans were compared earlier, call find_plans again), ask_which (several match: ask which one), not_on_file (it wasn't on file; on_file lists what is), nothing_on_file.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "what": {
+            "type": "string",
+            "enum": [
+              "doctor",
+              "drug",
+              "booking",
+              "preference"
+            ],
+            "description": "What kind of thing to remove."
+          },
+          "which": {
+            "type": "string",
+            "maxLength": 80,
+            "description": "The doctor, medication or preference as on file or as the caller said it, e.g. 'Dr. Donald Abrams' or 'metformin'. 'all' when they say all of them changed. For a booking, 'appointment'."
+          }
+        },
+        "required": [
+          "what",
+          "which"
+        ]
+      },
+      "sources": [
+        "Harbor CRM (Postgres)"
+      ]
+    },
+    {
+      "name": "show_file",
+      "delivery": "client",
+      "on_call": "silent",
+      "on_resolve": "generate_response",
+      "description": "Put everything on the caller's file on their screen: doctors, medications with strengths, their advisor appointment and saved preferences. Call it when they ask what you have for them, what's on file, or to review before comparing plans; after adding or removing several things, call it so they can see the result. Result: shown, with the same lists to summarise in one sentence.",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      },
+      "sources": [
+        "Harbor CRM (Postgres)"
+      ]
     }
   ]
 }

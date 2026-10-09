@@ -66,3 +66,16 @@ describe("call screen state", () => {
     expect(s.activity[0].done).toBe(true);
   });
 });
+
+describe("removing from the file", () => {
+  it("drops the removed doctor's card and the comparison made with the old file", () => {
+    const doctorCard = { kind: "doctor" as const, data: { npi: "1", name: "Dr. Donald Abrams", specialty: null, city: "SF", practiceName: null, acceptsMedicare: true, included: [], plans: [] } };
+    const plansCard = { kind: "plans" as const, data: { area: null, doctors: ["Dr. Donald Abrams"], drugs: [], plans: [] } };
+    let s = callReducer(initialCallState, { type: "tool_finished", name: "lookup_doctor", card: doctorCard });
+    s = callReducer(s, { type: "tool_finished", name: "find_plans", card: plansCard });
+    s = callReducer(s, { type: "tool_started", toolCallId: "t9", name: "remove_from_file", args: { what: "doctor", which: "Dr. Abrams" } });
+    s = callReducer(s, { type: "tool_finished", toolCallId: "t9", name: "remove_from_file", card: { kind: "removed", data: { what: "doctor", names: ["Dr. Donald Abrams"], keys: ["doctor:1", "plans", "cost"] } } });
+    expect(s.items).toEqual([]);
+    expect(s.activity.at(-1)).toMatchObject({ done: true, summary: "Removed Dr. Donald Abrams from your file", itemKey: undefined });
+  });
+});

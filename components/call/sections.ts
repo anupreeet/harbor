@@ -14,7 +14,7 @@ export type Section = {
 };
 
 export const SECTIONS: Section[] = [
-  { id: "overview", label: "Overview", Icon: LayoutGrid, kinds: ["preference"] },
+  { id: "overview", label: "Overview", Icon: LayoutGrid, kinds: ["on_file", "preference"] },
   {
     id: "section:doctors", label: "Doctors", Icon: Stethoscope, kinds: ["doctor", "doctor_options"],
     intro: "Checked in the national clinician registry and Medicare's records, then against each plan's network.",
@@ -37,7 +37,7 @@ export const SECTIONS: Section[] = [
   },
 ];
 
-const ORDER = ["plans", "plan_details", "cost", "doctor", "doctor_options", "drug", "availability", "booking"];
+const ORDER = ["on_file", "plans", "plan_details", "cost", "doctor", "doctor_options", "drug", "availability", "booking"];
 
 export const sectionOf = (kind: string) => SECTIONS.find((s) => s.kinds.includes(kind))?.id ?? "overview";
 

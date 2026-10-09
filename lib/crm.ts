@@ -83,6 +83,24 @@ export async function listFacts<T = Record<string, unknown>>(contactId: string, 
   return rows.map((r) => r.value);
 }
 
+export async function removeFacts(contactId: string, kind: FactKind, keys: string[]) {
+  await query(`DELETE FROM facts WHERE contact_id = $1 AND kind = $2 AND fact_key = ANY($3)`, [contactId, kind, keys]);
+}
+
+export async function removePreferences(contactId: string, remove: string[]) {
+  const contact = await getContact(contactId);
+  if (!contact) return;
+  const prefs = contact.preferences.filter((p) => !remove.includes(p));
+  await query(`UPDATE contacts SET preferences = $2 WHERE id = $1`, [contactId, JSON.stringify(prefs)]);
+}
+
+// Cancelling frees the slot for other callers. The one deliberate step back in the deal stage:
+// advanceDeal only moves forward, so this writes "qualified" directly.
+export async function cancelBooking(contactId: string, bookingId: string) {
+  await query(`DELETE FROM bookings WHERE id = $1 AND contact_id = $2`, [bookingId, contactId]);
+  await query(`UPDATE deals SET stage = 'qualified', updated_at = now() WHERE contact_id = $1 AND stage = 'booked'`, [contactId]);
+}
+
 export async function addPreference(contactId: string, preference: string) {
   const contact = await getContact(contactId);
   if (!contact) return;

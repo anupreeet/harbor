@@ -5,6 +5,7 @@ import { timeZoneForState } from "../integrations/geo";
 import { getAdvisorAvailability, bookAdvisorCall, rememberPreference } from "./advisor";
 import { lookupDoctor } from "./doctor";
 import { checkDrug } from "./drug";
+import { removeFromFile, showFile } from "./file";
 import { estimateAnnualCost, findPlans, showPlanDetails } from "./plans";
 import type { ToolContext, ToolHandler, ToolSpec } from "./types";
 
@@ -20,6 +21,8 @@ const HANDLERS: Partial<Record<string, ToolHandler>> = {
   get_advisor_availability: getAdvisorAvailability,
   book_advisor_call: bookAdvisorCall,
   remember_preference: rememberPreference,
+  remove_from_file: removeFromFile,
+  show_file: showFile,
 };
 
 export function getTool(name: string): { spec: ToolSpec; handler: ToolHandler } | null {

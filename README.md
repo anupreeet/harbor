@@ -69,6 +69,9 @@ specific disclaimer **within the first minute** of a sales call.
 6. Choices are buttons: which doctor, which strength, a plan's details, an open time. Tapping one answers Anna.
    Or press **Share screen** and show her a prescription list; she reads it back, you confirm, she checks each.
    Or paste one message asking for everything, and she runs every check back to back.
+   Things change mid-call, so the file is editable by voice: "my doctor is now Dr. Carlson" takes the old
+   doctor off and checks the new one, "I stopped metformin" removes it, "cancel my appointment" cancels it, and
+   "what do you have for me?" shows the whole file. The comparison is redone with what's left.
 7. "Which plan should I pick?" She won't. She offers a licensed advisor and books the time you confirm.
 8. The call lands in the **sidebar** as a record, like meeting notes: a summary (next step, progress, coverage
    grid, compliance checklist), the transcript, and every result grouped by step. **Your coverage** gathers
@@ -147,7 +150,8 @@ are recreated only when their content changes). `npm run agent:check` prints the
 | Feature | How it's used | Why |
 |---|---|---|
 | Tools, app-message delivery | Doctor, drug, plan, cost and calendar lookups | The browser renders the card in the same instant Anna gets the answer |
-| Tools, API delivery + HMAC | Booking, saving a preference | Writes must be authenticated, idempotent and survive a closed tab; the browser can never trigger one |
+| Tools, API delivery + HMAC | Booking, saving a preference | Writes must be authenticated, idempotent and survive a closed tab; the browser can never create a booking |
+| Tools, app-message delivery, for edits | Taking a doctor, drug, appointment or preference off your file; showing the file | The one write the browser runs, on the signed-in caller's session: the screen has to drop the old card in the same instant, and it only touches your own rows (the **Your coverage** page offers the same edit) |
 | `on_resolve: generate_response` on every tool | | The default, `fire_and_forget`, makes the rep ignore the result. A test enforces this |
 | `custom_greeting` | AI disclosure, CMS disclaimer, transcription notice | Spoken verbatim and can't be interrupted, so compliance-critical words don't depend on the model |
 | Raven perception + screen share | Reading prescription lists and bottles; spotting a third party answering for the caller | Showing beats spelling for a 70-year-old; and a family member answering is a real compliance issue |

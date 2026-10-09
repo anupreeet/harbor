@@ -84,6 +84,18 @@ export type PlanDetailsCard = {
   };
 };
 
+// Not shown as a card: tells the screen which results to drop because they left the file.
+export type RemovedCard = { kind: "removed"; data: { what: "doctor" | "drug" | "booking" | "preference"; names: string[]; keys: string[] } };
+export type OnFileCard = {
+  kind: "on_file";
+  data: {
+    doctors: { name: string; specialty: string | null; city: string }[];
+    drugs: { name: string; strength: string | null }[];
+    booking: { when: string; advisor: string } | null;
+    preferences: string[];
+  };
+};
+
 export type Card =
   | DoctorCard
   | DoctorOptionsCard
@@ -93,4 +105,6 @@ export type Card =
   | AvailabilityCard
   | BookingCard
   | PreferenceCard
-  | PlanDetailsCard;
+  | PlanDetailsCard
+  | RemovedCard
+  | OnFileCard;
