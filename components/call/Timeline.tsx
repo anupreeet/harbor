@@ -15,7 +15,7 @@ export function Bubble({ role, text, name }: { role: "pal" | "user"; text: strin
   const mine = role === "user";
   return (
     <li className={cn("flex", mine ? "justify-end" : "justify-start")}>
-      <div className={cn("max-w-[85%] rounded-2xl px-3.5 py-2 text-sm leading-relaxed", mine ? "rounded-br-sm bg-primary text-primary-foreground" : "rounded-bl-sm bg-muted")}>
+      <div className={cn("max-w-[85%] rounded-2xl px-3.5 py-2 text-sm leading-relaxed [overflow-wrap:anywhere]", mine ? "rounded-br-sm bg-primary text-primary-foreground" : "rounded-bl-sm bg-muted")}>
         <span className="sr-only">{mine ? name : "Anna"}: </span>
         {text}
       </div>
