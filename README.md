@@ -9,6 +9,29 @@ picks up where this one stopped. She never picks a plan for you or enrolls you; 
 **Live:** https://harbor-umber.vercel.app (Vercel + Neon). Sign-up asks for an invite code, because every call
 spends Tavus minutes; the code comes with this link.
 
+### Try it: doctors and drugs to name
+
+Any real doctor works. Anna searches the national registry **in the state of the ZIP you signed up with**,
+and a made-up name gets "I couldn't find that doctor". Use your own doctor with your own ZIP, or sign up with
+one of these ZIPs and name a doctor from its row (first and last name). Each one below was checked through
+the same lookup Anna uses: one match, and Medicare says they accept assignment.
+
+| Sign up with ZIP | Doctors to name | In which demo plans |
+|---|---|---|
+| **94110** (San Francisco) | Dr. Donald Abrams · Dr. Jacob Aaron · Dr. Elizabeth Abbs | HMO + PPO · HMO + HMO-POS · PPO + HMO-POS |
+| **10025** (New York) | Dr. Gregory Dodell · Dr. Fatima Anwer · Dr. Esra Ekiz | all three · HMO + PPO · PPO + HMO-POS |
+| **60614** (Chicago) | Dr. Elias Abate · Dr. Maliha Abbas | HMO + PPO · none |
+
+The doctors are real; which plans include them is demo data (the same doctor always gets the same answer).
+
+**Drugs with demo prices** (any real drug is recognised, but only these have prices on the demo plans):
+Eliquis (apixaban), Xarelto (rivaroxaban), Lantus (insulin glargine), Januvia (sitagliptin), Jardiance
+(empagliflozin), Ozempic (semaglutide), metformin, Lipitor (atorvastatin), Crestor (rosuvastatin),
+lisinopril, losartan, amlodipine, Synthroid (levothyroxine), Plavix (clopidogrel), omeprazole, gabapentin.
+
+A full call to try: *"I take Eliquis 5 milligrams and metformin 500. My doctor is Dr. Donald Abrams."* →
+*"Can you compare the plans?"* → *"Which plan should I pick?"* → *"Sure, what times are open?"*
+
 ## Why this, for a Tavus customer
 
 **The buyer is a Medicare insurance brokerage, and the moment is now.** Medicare's Annual Enrollment
